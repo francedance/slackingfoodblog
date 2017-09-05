@@ -1,0 +1,57 @@
+<!DOCTYPE Html>
+<html lang="en">
+    <head>
+        <title>Slacking Food Blog</title>
+        <meta name="viewport" content="width=device-width">
+        <% include ../public/js/scripts.html %>
+
+
+        <script>
+
+            $(document).ready(function(){
+
+               
+               $('nav').hide();
+               $('nav').fadeIn(2000);
+
+            
+
+
+
+
+            });
+              
+
+        </script>
+
+
+    </head>
+
+    <body >
+
+        <div id="wrapper" class="container-fluid">
+        <div class="row">
+
+
+        <% include ./navigation.ejs %>
+
+        <% if (session) { %>
+            <h1 id="admin_name"> Hello <%= session.username %> </h1>
+            <%  } %>
+
+        <% include ./dashboard_form.ejs %>
+
+
+
+        <% include ./footer.ejs %>
+
+
+        
+
+            </div>
+        </div>
+    
+    </body>
+
+
+</html>

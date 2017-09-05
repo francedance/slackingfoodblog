@@ -1,0 +1,65 @@
+<!DOCTYPE Html>
+<html lang="en">
+    <head>
+        <title>Slacking Food Blog</title>
+         <meta name="viewport" content="width=device-width">
+        <% include ../public/js/scripts.html %>
+
+
+        <script>
+
+            $(document).ready(function(){
+
+               
+
+               $('nav').hide();
+               $('nav').fadeIn(2000);
+
+               
+                    
+          
+                   
+            });
+
+        </script>
+
+
+    </head>
+
+    <body >
+
+        <div id="wrapper" class="container-fluid">
+        <div class="row">
+
+            <div class="background-wrap">
+            <video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
+                <source src="" type="video/mp4">
+            </video>
+            </div>
+
+            <div class= "col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <br/>
+                <br/>
+                <a href="/"><img class="img-responsive" src="img/logo.png" alt="Logo"/></a>
+                 <br/>
+                <br/>
+            
+            </div>
+
+           
+
+        <% include ./navigation.ejs %>
+
+      
+
+
+        <% include ./footer.ejs %>
+
+
+            </div>
+        </div>
+    
+    </body>
+
+
+</html>

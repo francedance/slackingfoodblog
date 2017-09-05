@@ -1,0 +1,86 @@
+<!DOCTYPE Html>
+<html lang="en">
+    <head>
+        <title>Slacking Food Blog</title>
+        <meta name="viewport" content="width=device-width">
+        <% include ../public/js/scripts.html %>
+         <script>
+
+            $(document).ready(function(){
+
+            
+               $('nav').hide();
+               $('nav').fadeIn(2000);
+
+               
+                   
+            });
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <div id="wrapper" class="container-fluid">
+       
+ 
+       
+        <% include ./navigation.ejs %>
+
+ <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1>My Food Journey</h1>
+                </div>
+            
+
+            <div id="journey" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div id="journey_contents" >
+                    
+                    <% for(var i = 0 ; i < posts.length ; i++) { %>
+                        <div id="show_contents"> 
+                            <p id="post_title"> <%= posts[i].title %> </p>
+
+                            <div id="bar">
+                            </div>
+                            <br/>
+
+                            <p id="date">Updated: <%= posts[i].updated %> </p>
+
+                            <br/>
+
+                            
+                            <% if(posts[i].imagename) { %>
+             <% var url = 'http://res.cloudinary.com/slacking-food-blog/image/upload/v1503502589/' + posts[i].imagename + '.jpg' %>
+                            <img class="img-responsive" id="photo" src= <%= url %> /> 
+
+                            <% } %>
+
+                            <br/>
+
+                            <p id="contents"> <%- posts[i].content %> </p>
+
+                            <div id="bar2">
+                            </div>
+                            <br/>
+
+                    </div>
+
+                    <br/>
+                    <br/>
+                    <% } %>
+                
+                </div>
+                </div>
+
+        
+        <% include ./footer.ejs %>
+       
+        </div>
+
+       
+        
+    
+    </body>
+
+
+</html>
