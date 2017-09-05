@@ -25,7 +25,7 @@ app.use(session({
            
 
 
-//var index = require('./route/index.js');
+var index = require('./route/index.js');
 var about_blog = require('./route/about_blog.js');
 var what_i_eat_recipes = require('./route/what_i_eat_recipes.js');
 var my_food_journey = require('./route/my_food_journey.js')
@@ -42,6 +42,7 @@ app.set('views','./views');
 
 //setting up some routes
 
+app.use('/',index);
 app.use('/about_blog',about_blog);
 app.use('/what_i_eat_recipes',what_i_eat_recipes);
 app.use('/my_food_journey',my_food_journey);
@@ -50,16 +51,9 @@ app.use('/login',login);
 app.use('/signout',signout);
 app.use('/dashboard',dashboard);
 
-console.log(process.env.mongo_username);
 
-app.get('/' , function(req,res){
 
-      var session = req.session; 
 
-    res.render('index', {session});
-   res.end();
-
-});
 
 
 app.get('/index', function(req,res){
