@@ -2,8 +2,8 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-mongodb_uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
-mongoose.connect(mongodb_uri);
+
+mongoose.connect(process.env.MONGODB_URI);
 
 
 var path = require('path');
