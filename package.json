@@ -4,7 +4,7 @@
   "description": "My personal food blog",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "foods",
@@ -35,6 +35,7 @@
     "mysql": "^2.13.0",
     "mysqli": "^2.0.1",
     "node-delete": "^0.1.2",
-    "password-hash": "^1.2.2"
+    "password-hash": "^1.2.2",
+    "nodemon": "~1.0.14"
   }
 }
