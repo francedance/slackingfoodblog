@@ -26,6 +26,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "cloudinary": "^1.9.0",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-session": "^1.15.5",
     "formidable": "^1.1.1",
@@ -35,7 +36,7 @@
     "mysql": "^2.13.0",
     "mysqli": "^2.0.1",
     "node-delete": "^0.1.2",
-    "password-hash": "^1.2.2",
-    "nodemon": "~1.0.14"
+    "nodemon": "~1.0.14",
+    "password-hash": "^1.2.2"
   }
 }
