@@ -158,9 +158,13 @@
 
             #about_blog #main_contents p , #favorite p, #journey p, #recipes p{
                font-family: stark;
-               font-size: .5vw;
+               font-size: 1.5vw;
 
             }
+
+          #h2 {
+              font-size: 3vw;
+          }
 
             #about_share {
 
@@ -243,7 +247,6 @@
 
              #post_title {
                 text-align: center;
-                font-size: 3vw;
                color:  white;
             }
 
