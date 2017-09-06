@@ -161,10 +161,7 @@
 
             }
 
-          #date {
-            
-          font-size: 1vw;
-            }
+         
 
 
             #favorite p, #journey p, #recipes p{
@@ -269,7 +266,7 @@
             }
 
             #date{
-                font-size: 1vw;
+                font-size: .5vw;
                 text-align: center;
                 color: yellowgreen;
             }
