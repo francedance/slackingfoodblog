@@ -244,6 +244,7 @@
              #post_title {
                 text-align: center;
                 font-size: 3vw;
+               color:  white;
             }
 
              #comment {
@@ -288,6 +289,7 @@
                 font-size: 2vw;
                 margin-left: 50px;
                 margin-right: 50px;
+                color: white;
             }
 
             #admin_name {
