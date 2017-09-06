@@ -20,7 +20,7 @@
   "author": "Jaehyuk Oh",
   "license": "ISC",
   "engines": {
-    "node": "6.11.2",
+    "node": "8.4.0",
     "npm": "4.5.0"
   },
   "dependencies": {
