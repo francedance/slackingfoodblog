@@ -158,11 +158,11 @@
 
             #about_blog #main_contents p , #favorite p, #journey p, #recipes p{
                font-family: stark;
-               font-size: 1.5vw;
+               font-size: 1.2vw;
 
             }
 
-          #h2 {
+          h2 {
               font-size: 3vw;
           }
 
