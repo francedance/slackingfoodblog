@@ -161,11 +161,12 @@
 
             }
 
-         #favorite p #date, #journey p #date, #recipes p #date{
-               font-family: stark;
-               font-size: .5vw;
+        #favorite #date , #journey #date, #recipes #date {
+            font-size: 12px;
+          
+          }
 
-            }
+      
             
 
             #favorite p, #journey p, #recipes p{
