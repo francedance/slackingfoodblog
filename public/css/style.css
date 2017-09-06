@@ -298,7 +298,13 @@
 
             #delete {
                 text-align: center;
-                color: white;
+                
+                
+            }
+
+          #delete input {
+              background-color: white;
+              color: black;
             }
 
             #recipes {
