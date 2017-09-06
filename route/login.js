@@ -1,9 +1,9 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var bcrypt = require('bcrypt');
-
-mongoose.connect(process.env.MONGODB_URI);
+var bcrypt = require('bcryptjs');
+mongodb_uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
+mongoose.connect(mongodb_uri);
 
 
 var cookieParser = require('cookie-parser');

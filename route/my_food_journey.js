@@ -5,7 +5,9 @@ var mongoose = require('mongoose');
 var Myfoodjourney = require('../models/my_food_journey.js');
 var cloudinary = require('cloudinary');
 var bodyParser = require("body-parser")
-mongoose.connect(process.env.MONGODB_URI);
+mongodb_uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
+mongoose.connect(mongodb_uri);
+
 
 router.use(bodyParser.urlencoded({extended: true}));
 
