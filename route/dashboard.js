@@ -8,7 +8,7 @@ mongoose.connect(mongodb_uri);
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
+var session = require('cookie-session');
 var cloudinary = require('cloudinary');
 var del = require('node-delete');
 var util = require('util');
