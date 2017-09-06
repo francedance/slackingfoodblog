@@ -161,6 +161,12 @@
 
             }
 
+          #date {
+            
+          font-size: 1vw;
+            }
+
+
             #favorite p, #journey p, #recipes p{
                font-family: stark;
                font-size: 2vw;
@@ -171,10 +177,7 @@
               font-size: 3vw;
           }
 
-          #date {
-            
-          font-size: 1vw;
-            }
+          
 
             #about_share {
 
