@@ -15,6 +15,8 @@ var util = require('util');
 var multer = require('multer');
 var fs = require('fs-extra');
 
+var key = process.env.API_KEY;
+var secret = process.env.API_SECRET;
 
 var Myfavoritestuff = require('../models/my_favorite_stuff.js');
 var Myfoodjourney = require('../models/my_food_journey.js');
@@ -86,8 +88,8 @@ router.post('/upload_to_my_favorite_stuff' , upload.single('imagefile') , functi
 
     cloudinary.config({ 
             cloud_name: 'slacking-food-blog', 
-            api_key: '225692669313499', 
-            api_secret: 'w6aqw_iXgPs0rYNIiDqYZ9ZlnqU' 
+            api_key: key, 
+            api_secret: secret 
             });
 
             
