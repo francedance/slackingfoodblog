@@ -8,8 +8,8 @@ var session = require('cookie-session');
 
 router.get('/', function(req,res){
 
-    var session = req.session;
-    session.destroy();
+    
+   req.session = null;
     res.redirect('/');
     res.end();
 
