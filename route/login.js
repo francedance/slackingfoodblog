@@ -7,7 +7,7 @@ mongoose.connect(mongodb_uri);
 
 
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
+var session = require('cookie-session');
 
 
 var Admin = require('../models/admin.js');
