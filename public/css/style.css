@@ -155,8 +155,13 @@
 
             }
 
+            #about_blog #main_contents p {
+              font-family: stark;
+              font-size: 1.5vw;
 
-            #about_blog #main_contents p , #favorite p, #journey p, #recipes p{
+            }
+
+            #favorite p, #journey p, #recipes p{
                font-family: stark;
                font-size: 2vw;
 
@@ -165,6 +170,11 @@
           h2 {
               font-size: 3vw;
           }
+
+          #date {
+            
+          font-size: 1vw;
+            }
 
             #about_share {
 
