@@ -506,10 +506,18 @@
                 font-size: 6vw;
             }
 
-            #contents{
-                font-size: 4vw;
-            }
+         
 
+            #about_blog #main_contents p , #favorite p, #journey p, #recipes p{
+               font-family: stark;
+               font-size: 4vw;
+
+            }
+     
+            h2 {
+                    5vw;
+     }
+     
             #date{
                 font-size: 2vw;
                 text-align: center;
@@ -517,14 +525,14 @@
             }
 
             #bar{
-                border: 3px solid gold;
+                border: 2px solid gold;
                 background-color: gold;
                 width: 65vw;
                 margin: 0 auto;
             }
 
              #bar2{
-                border: 3px solid red;
+                border: 2px solid red;
                 background-color: red;
                 width: 65vw;
                 margin: 0 auto;
