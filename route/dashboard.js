@@ -2,7 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-var uri = var uri = process.env.MONGODB_URI;;
+var uri = process.env.MONGODB_URI;;
 //mongoose.connect(process.env.MONGODB_URI);
 mongoose.connect(uri);
 
