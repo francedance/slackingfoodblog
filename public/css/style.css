@@ -128,7 +128,7 @@
 
             }
 
-               #recipes_contents #contents ul, #journey_contents #contents ul , #favorite_contents #contents ul {
+               #recipes_contents #contents , #journey_contents #contents  , #favorite_contents #contents {
                         margin-left: auto;
                         margin-right: auto;
                             margin: 0 auto;
@@ -638,15 +638,7 @@
                             
                }
                
-               #recipes_contents #contents ul, #journey_contents #contents ul , #favorite_contents #contents ul {
-                        margin-left: auto;
-                        margin-right: auto;
-                            margin: 0 auto;
-                            font-size: 3vw;
-                            text-align: center;
-                           
-                            
-               }
+              
                
                
                
