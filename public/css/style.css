@@ -128,6 +128,27 @@
 
             }
 
+               #recipes_contents #contents ul, #journey_contents #contents ul , #favorite_contents #contents ul {
+                        margin-left: auto;
+                        margin-right: auto;
+                            margin: 0 auto;
+                          
+                            text-align: center;
+                           
+                            
+               }
+               
+                 #recipes_contents #contents li, #journey_contents #contents li , #favorite_contents #contents li {
+                        margin-left: auto;
+                        margin-right: auto;
+                            margin: 0 auto;
+                        
+                            text-align: left;
+                           
+                            
+               }
+               
+
             #about_blog #main_contents{
                 border:none;
                 background-color: white;
