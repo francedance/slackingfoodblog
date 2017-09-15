@@ -608,7 +608,11 @@
                 font-size: 5vw;
                 font-family: contra;
             }
-
+            
+                #recipes_contents img, #journey_contents img , #favorite_contents img {
+                        margin-left: 1vw;
+                        margin-right: 1vw;
+               }
             
             img {
                 width: 90vw;
