@@ -6,7 +6,10 @@ var Myfoodjourney = require('../models/my_food_journey.js');
 var cloudinary = require('cloudinary');
 var bodyParser = require("body-parser")
 
-mongoose.connect(process.env.MONGODB_URI);
+var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
+mongoose.connect(uri);
+
+
 
 
 router.use(bodyParser.urlencoded({extended: true}));
@@ -15,30 +18,26 @@ router.get('/',function(req,res){
 
         var session = req.session;
 
-      if(session.username){
+           Myfoodjourney.find({}).sort({updated: -1}).exec(function(err,posts){
 
-         Myfoodjourney.find({}, function(err, posts){
-        if (err) {
-            throw err;
-            res.redirect('/');
-            res.end();
-        }else{  
-        res.render('my_food_journey_editable',{posts,session});
-        res.end();
-        }});
-        
-    }else {
-        
-         Myfoodjourney.find({}, function(err, posts){
-        if (err) {
-            throw err;
-            res.redirect('/');
-            res.end();
-        }else{  
-        res.render('my_food_journey',{posts,session});
-        res.end();
-        }});
-    }
+            
+            if(err) {
+                throw err;
+                res.redirect('/');
+                res.end();
+            }else{
+                if(session.username){
+                res.render('my_food_journey_editable', {session, posts});
+                res.end();
+                }else{
+
+                res.render('my_food_journey', {session, posts});
+                res.end();
+                }
+            }
+
+
+        });
 
 });
 

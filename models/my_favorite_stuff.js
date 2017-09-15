@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var myfavoritestuffSchema = new Schema({
 
     title: String,
-    imagename: String,
+     images: [ String, String, String, String, String],
     content: String,
      updated: {type: Date, default: Date.now }
     

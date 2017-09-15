@@ -8,7 +8,7 @@ router.get('/',function(req,res){
 var session = req.session;
 
 res.render('about_blog', {session});
-
+res.end();
 });
 
 

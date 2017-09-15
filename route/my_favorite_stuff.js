@@ -6,7 +6,8 @@ var Myfavoritestuff = require('../models/my_favorite_stuff.js');
 var cloudinary = require('cloudinary');
 var bodyParser = require("body-parser");
 
-mongoose.connect(process.env.MONGODB_URI);
+var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
+mongoose.connect(uri);
 
 
 router.use(bodyParser.urlencoded({extended: true}));
@@ -15,31 +16,35 @@ router.get('/',function(req,res){
 
     var session = req.session;
 
-    if(session.username){
+    
 
-         Myfavoritestuff.find({}, function(err, posts){
-        if (err) {
-            throw err;
-            res.redirect('/');
-            res.end();
-        }else{  
-        res.render('my_favorite_stuff_editable',{posts, session});
-        res.end();
-        }});
+        Myfavoritestuff.find({}).sort({updated: -1}).exec(function(err,posts){
+
+            
+            if(err) {
+                throw err;
+                res.redirect('/');
+                res.end();
+            }else{
+                if(session.username){
+                res.render('my_favorite_stuff_editable', {session, posts});
+                res.end();
+                }else{
+
+                    
+                   //console.log(posts[0].images[2])
+                  
+
+
+                res.render('my_favorite_stuff', {session, posts});
+                res.end();
+                }
+            }
+
+
+        });
         
-    }else {
-       
-          Myfavoritestuff.find({}, function(err, posts){
-        if (err) {
-            throw err;
-            res.redirect('/');
-            res.end();
-        }else{  
-        res.render('my_favorite_stuff',{posts, session});
-        res.end();
-        }});
-    }
-
+    
 });
 
 

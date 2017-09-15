@@ -2,8 +2,9 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-
-mongoose.connect(process.env.MONGODB_URI);
+var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
+//mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(uri);
 
 
 var path = require('path');
@@ -15,8 +16,11 @@ var util = require('util');
 var multer = require('multer');
 var fs = require('fs-extra');
 
-var key = process.env.API_KEY;
-var secret = process.env.API_SECRET;
+//var key = process.env.API_KEY;
+//var secret = process.env.API_SECRET;
+
+var key = '225692669313499';
+var secret = 'w6aqw_iXgPs0rYNIiDqYZ9ZlnqU';
 
 var Myfavoritestuff = require('../models/my_favorite_stuff.js');
 var Myfoodjourney = require('../models/my_food_journey.js');
@@ -58,65 +62,82 @@ router.get('/',function(req,res){
 
 var upload = multer({dest: './upload'});
 
-router.post('/upload_to_my_favorite_stuff' , upload.single('imagefile') , function(req,res){
+router.post('/upload_to_my_favorite_stuff' , upload.array('imagefile', 5) , function(req,res){
 
-    if(req.file){
-    var oldpath = req.file.path;
-    var newpath = "./upload/" + req.file.originalname;
+    
+
+    if(req.files){
+    var oldpath = [];
+    var newpath = [];
     var title = req.body.title;
     var content = req.body.texts;
-    var imagename = req.file.originalname;
-
-    console.log(req.body);
+    var imagename = [];
+    var img_url = [];
 
    
+
+    for (i = 0 ; i < req.files.length ; i++){
+        oldpath[i] = req.files[i].path;
+        newpath[i] = "./upload/" + req.files[i].originalname;
+       
+       
+        imagename[i] = req.files[i].originalname;
+       
+    }
    
+    
+   
+    for(i = 0 ; i < req.files.length ; i++){
+   fs.rename(oldpath[i], newpath[i], function (err) {
+       if(err) throw err;
+  
+   });
+    }
 
-    fs.rename(oldpath, newpath, function (err) {
-        if(err) throw err;
+      var post = new Myfavoritestuff ({
+       title: title,
+      images: [imagename[0], imagename[1], imagename[2], imagename[3], imagename[4]],
+       content: content
 
-        
-    });
+   });
 
-     var post = new Myfavoritestuff ({
-        title: title,
-        imagename: imagename,
-        content: content
-
-    });
-
+   
 
     cloudinary.config({ 
-            cloud_name: 'slacking-food-blog', 
+           cloud_name: 'slacking-food-blog', 
             api_key: key, 
-            api_secret: secret 
-            });
+           api_secret: secret 
+           });
 
-            
-    cloudinary.uploader.upload(newpath,
-                 function(result) { 
-                console.log(result); }, 
-                {
-                    public_id: req.file.originalname,
-                } );
-
+       for(i = 0 ; i < req.files.length ; i++){
+    cloudinary.uploader.upload(newpath[i],
+                function(result) { 
+               
+               console.log(result); 
+                }, 
+               {
+                   public_id: imagename[i],
   
-    
-    post.save(function(err){
-        if(err) throw(err);
+               } );
+
+        }
+
+
+   post.save(function(err){
+      if(err) throw(err);
         console.log('post to my favorite stuff successfully saved!');
         
-    });
+     });
 
 
-     del(['./upload/' + req.file.originalname]);
+     for(i = 0 ; i < req.files.length ; i++) {
+     del(['./upload/' + imagename[i]]);
 
+     }
      res.redirect('/my_favorite_stuff');
      res.end();
-
-    }else {
-
-        var title = req.body.title;
+    }else{
+         var title = req.body.title;
         var content = req.body.texts;
         var imagename = undefined;
 
@@ -136,63 +157,77 @@ router.post('/upload_to_my_favorite_stuff' , upload.single('imagefile') , functi
          res.end();
     }
 
+    
+
 });
 
-router.post('/upload_to_my_food_journey' , upload.single('imagefile') , function(req,res){
+router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , function(req,res){
     
-    if(req.file){
-    var oldpath = req.file.path;
-    var newpath = "./upload/" + req.file.originalname;
+   
+    if(req.files){
+    var oldpath = [];
+    var newpath = [];
     var title = req.body.title;
     var content = req.body.texts;
-    var imagename = req.file.originalname;
+    var imagename = [];
 
-    console.log(req.body);
+    console.log(req.files[0].originalname);
 
-    fs.rename(oldpath, newpath, function (err) {
-        if(err) throw err; 
-    });
+    for (i = 0 ; i < req.files.length ; i++){
+        oldpath[i] = req.files[i].path;
+        newpath[i] = "./upload/" + req.files[i].originalname;
+        imagename[i] = req.files[i].originalname;
+    }
+   
+   
+    for(i = 0 ; i < req.files.length ; i++){
+   fs.rename(oldpath[i], newpath[i], function (err) {
+       if(err) throw err;
+  
+   });
+    }
 
-     var post = new Myfoodjourney ({
-        title: title,
-        imagename: imagename,
-        content: content
+    var post = new Myfoodjourney ({
+       title: title,
+      images: [imagename[0], imagename[1], imagename[2], imagename[3], imagename[4]],
+       content: content
 
-    });
+   });
 
 
     cloudinary.config({ 
-            cloud_name: 'slacking-food-blog', 
-            api_key: '225692669313499', 
-            api_secret: 'w6aqw_iXgPs0rYNIiDqYZ9ZlnqU' 
-            });
+           cloud_name: 'slacking-food-blog', 
+            api_key: key, 
+           api_secret: secret 
+           });
 
             
-    cloudinary.uploader.upload(newpath,
-                 function(result) { 
-                console.log(result); }, 
-                {
-                    public_id: req.file.originalname,
-                    url: 'http://res.cloudinary.com/slacking-food-blog/image/upload/v1503414661/pictures/my_food_journey/' 
-                } );
+        for(i = 0 ; i < req.files.length ; i++){
+    cloudinary.uploader.upload(newpath[i],
+                function(result) { 
+               console.log(result); }, 
+               {
+                   public_id: imagename[i],
+                   
+               } );
 
-  
+        }
     
-    post.save(function(err){
-        if(err) throw(err);
+   post.save(function(err){
+      if(err) throw(err);
         console.log('post to my food journey successfully saved!');
         
-    });
+     });
 
 
-     del(['./upload/' + req.file.originalname]);
+     for(i = 0 ; i < req.files.length ; i++) {
+     del(['./upload/' + imagename[i]]);
 
+     }
      res.redirect('/my_food_journey');
      res.end();
-
-    }else {
-
-        var title = req.body.title;
+    }else{
+         var title = req.body.title;
         var content = req.body.texts;
         var imagename = undefined;
 
@@ -211,73 +246,76 @@ router.post('/upload_to_my_food_journey' , upload.single('imagefile') , function
          res.redirect('/my_food_journey');
          res.end();
     }
-    
+
 
 });
 
-router.post('/upload_to_what_i_eat_recipe' , upload.single('imagefile') , function(req,res){
+router.post('/upload_to_what_i_eat_recipe' , upload.array('imagefile',5) , function(req,res){
     
     
-     if(req.file){
-    var oldpath = req.file.path;
-    var newpath = "./upload/" + req.file.originalname;
+    if(req.files){
+    var oldpath = [];
+    var newpath = [];
     var title = req.body.title;
     var content = req.body.texts;
-    var imagename = req.file.originalname;
-
-    console.log(req.body);
+    var imagename = [];
 
    
+
+    for (i = 0 ; i < req.files.length ; i++){
+        oldpath[i] = req.files[i].path;
+        newpath[i] = "./upload/" + req.files[i].originalname;
+        imagename[i] = req.files[i].originalname;
+    }
    
+   
+    for(i = 0 ; i < req.files.length ; i++){
+   fs.rename(oldpath[i], newpath[i], function (err) {
+       if(err) throw err;
+  
+   });
+    }
 
-    fs.rename(oldpath, newpath, function (err) {
-        if(err) throw err;
+    var post = new Whatieatrecipe({
+       title: title,
+      images: [imagename[0], imagename[1], imagename[2], imagename[3], imagename[4]],
+       content: content
 
-        
-    });
+   });
 
-     var post = new Whatieatrecipe ({
-        title: title,
-        imagename: imagename,
-        content: content
-
-    });
-
-    var cloud_api_key = process.env.cloud_api_key;
-    var cloud_api_secret = process.env.cloud_api_secret;
 
     cloudinary.config({ 
-            cloud_name: 'slacking-food-blog', 
-            api_key: cloud_api_key, 
-            api_secret: cloud_api_secret 
-            });
+           cloud_name: 'slacking-food-blog', 
+            api_key: key, 
+           api_secret: secret 
+           });
 
             
-    cloudinary.uploader.upload(newpath,
-                 function(result) { 
-                console.log(result); }, 
-                {
-                    public_id: req.file.originalname,
-                    url: 'http://res.cloudinary.com/slacking-food-blog/image/upload/v1503414661/pictures/what_i_eat_recipe/' 
-                } );
+        for(i = 0 ; i < req.files.length ; i++){
+    cloudinary.uploader.upload(newpath[i],
+                function(result) { 
+               console.log(result); }, 
+               {
+                   public_id: imagename[i],
+               } );
 
-  
+        }
     
-    post.save(function(err){
-        if(err) throw(err);
-        console.log('post to what i eat successfully saved!');
+   post.save(function(err){
+      if(err) throw(err);
+        console.log('post to what I eat recipes successfully saved!');
         
-    });
+     });
 
 
-     del(['./upload/' + req.file.originalname]);
+     for(i = 0 ; i < req.files.length ; i++) {
+     del(['./upload/' + imagename[i]]);
 
+     }
      res.redirect('/what_i_eat_recipes');
      res.end();
-
-    }else {
-
-        var title = req.body.title;
+    }else{
+         var title = req.body.title;
         var content = req.body.texts;
         var imagename = undefined;
 
@@ -290,7 +328,7 @@ router.post('/upload_to_what_i_eat_recipe' , upload.single('imagefile') , functi
 
            post.save(function(err){
                  if(err) throw(err);
-                console.log('post to what i eat successfully saved!');
+                console.log('post to what i eat recipes successfully saved!');
         
              });
          res.redirect('/what_i_eat_recipes');

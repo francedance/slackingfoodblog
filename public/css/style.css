@@ -1,47 +1,47 @@
 
+            
+               @font-face {
+                font-family: contra;
+                src: url(../fonts/CONTRA_.ttf);
+            }
+
+
+            @font-face {
+                font-family: amarfil;
+                src: url(../fonts/Amarfil.ttf);
+            }
 
                body {
                 
-                background-color: black;
+                background-color: white;
                 overflow-x: hidden;
                 overflow-y: scroll;
                 position: relative;
                 background-image: none;
-                font-family: kimberly;
+                font-family: contra;
+                
                
             }
 
-
-            .background-wrap {
-                position: fixed;
-               margin: 0 auto;
-                display: block;
-                z-index: -1000;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                
-            }
-
-            #video-bg-elem {
-                position: absolute;
-                top:0;
-                left: 0;
-
-
-            }
-         
-
-
             img {
-                width: 400px;
-                height: 300px;
+                width: 700px;
+                height: 500px;
                 display: block;
                margin:0 auto;
                 position: relative ;
 
             }
 
+            img #logo{
+                width: auto;
+                height: auto;
+                display: block;
+               margin:0 auto;
+                position: relative ;
+
+            }
+
+           
            
 
             #menu{
@@ -58,30 +58,32 @@
 
             
 
-               @font-face {
-                font-family: kimberly;
-                src: url(../fonts/kimberly.ttf);
+
+             #username, #password {
+                color: #B2A000;
+                font-family: contra;
+                
             }
 
-             @font-face {
-                font-family: stark;
-                src: url(../fonts/stark.otf);
-            }
+
 
           h1 {
-              color: white;
+              color: #B2A000;
+              font-family: contra ;
+              text-align: center;
+              font-size: 2vw;
           }
 
             nav a {
-                color: yellow;
+                color: black;
                 font-size: 2.5vw;
-                font-family: kimberly;
+                font-family: contra;
                 text-decoration-line: none;
 
             }
 
             nav a:hover {
-                color: red;
+                color: #B2A000;
                 text-decoration: none;
                 
             
@@ -94,32 +96,34 @@
             }
 
             button p {
-                font-family: kimberly;
+                font-family: amarfil;
             }
 
             footer{
-                font-family: kimberly;
+                font-family: contra;
                 position: relative;
                 display: inline-block;
                 font-size: 2vw;
-                color: yellow;
+                font-weight: bold;
+                color: black;
                 margin: 0 auto;
                 text-align: center;
                 bottom: 0;
             }
 
-            #recipes, #journey {
+            #recipes, #journey, #favorite {
                
                background-color: transparent;
             }
 
-            #recipes #recipes_contents , #journey #journey_contents {
+            #recipes #recipes_contents , #journey #journey_contents , #favorite #favorite_contents {
              
-                background-color: black;
-                color: white;
+                background-color: none;
+                color: black;
                 height: 100%;
                 margin: 0 auto;
-              
+                font-family: contra;
+
 
             }
 
@@ -134,7 +138,7 @@
 
             #page_title {
                 font-size: 7vw;
-                color: white;
+                color: black;
                 float: left;
                 
             }
@@ -156,27 +160,23 @@
             }
 
             #about_blog #main_contents p {
-              font-family: stark;
+              font-family: contra;
               font-size: 1.5vw;
 
             }
 
-        #favorite #date , #journey #date, #recipes #date {
-            font-size: 1.5vw;
-          
-          }
-
-      
-            
-
-            #favorite p, #journey p, #recipes p{
-               font-family: stark;
-               font-size: 2vw;
-
+            #date{
+               
+                text-align: center;
+                color: black;
+                font-size: 1vw;
+                font-weight: bold;
             }
+            
 
           h2 {
               font-size: 3vw;
+              font-family: contra;
           }
 
           
@@ -190,12 +190,17 @@
             }
 
             footer a {
-                color: orange;
+                color: #B2A000;
+                font-size: 2vw;
 
+            }
+
+            footer #copyright {
+                font-size: 1.2vw;
             }
             
             footer a:hover {
-                color: crimson;
+                color: #62C9F4;
                  text-decoration: none;
                 
             }
@@ -205,7 +210,7 @@
             }
 
             #form form #button {
-              background-color: orange;
+              background-color: white;
             }
 
             div .container.contents-collapsible {
@@ -214,14 +219,13 @@
 
               div .container.contents-collapsible button {
                 width: 300px;
-                background-color: orange;
-                color: black;
-                border: 1px solid black;
+                background-color: #B2A000;
+                color: white;
+                border: 1px solid white;
+                font-family: contra;
+                font-weight: bold;
             }
 
-            #what_i_eat_recipe , #my_favorite_stuff, #my_food_journey {
-                border: 1px dotted black;
-            }
 
             div #form_contents {
                 margin-top: 30px; 
@@ -252,10 +256,7 @@
                margin: 0 auto;
             }
 
-            .ads {
-                border: 1px solid black;
-            }
-
+           
             #title {
                 text-align: left;
                 font-size: 1.5vw;
@@ -263,7 +264,9 @@
 
              #post_title {
                 text-align: center;
-               color:  white;
+               color:  black;
+               font-weight: bold;
+               
             }
 
              #comment {
@@ -271,16 +274,9 @@
                 font-size: 1.5vw;
             }
 
-            #date{
-               
-                text-align: center;
-                color: yellowgreen;
-            }
-
             #bar{
-                border: 3px solid gold;
-                background-color: gold;
-                width: 35vw;
+                border: 1px dotted black;
+                width: 55vw;
                 margin: 0 auto;
             }
 
@@ -290,9 +286,9 @@
             }
 
              #bar2{
-                border: 3px solid red;
-                background-color: red;
-                width: 35vw;
+                border: 1px dotted black;
+                
+                width: 55vw;
                 margin: 0 auto;
             }
 
@@ -308,7 +304,8 @@
                 font-size: 2vw;
                 margin-left: 50px;
                 margin-right: 50px;
-                color: white;
+                color: black;
+                font-family: amarfil;
             }
 
             #admin_name {
@@ -330,6 +327,24 @@
                 margin: 0 auto;
             }
 
+            #newest_post {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            #newest_head {
+                font-size: 1.5vw;
+                color: black;
+            }
+
+            #newest_title {
+                font-size: 1vw;
+                color: blue;
+            }
+
+            #whats_new , #content_notify{
+                font-size: 1.5vw;
+            }
             
    @media only screen and (max-width: 768px){
 
@@ -413,7 +428,7 @@
 
        body {
                 max-width: auto;
-                background-color: black;
+                background-color: white;
                 overflow-x: hidden;
                 overflow-y: scroll;
                 position: relative;
@@ -421,44 +436,31 @@
             }
 
         nav a {
-                color: white;
+                color: black;
                 font-size: 4.5vw;
                 font-family: kimberly;
                 text-decoration-line: none;
 
             }
 
-          
+          #newest_post p {
+              font-size: 4vw;
+          }
             .navbar-header #navigation_button {
-                background-color: red;
+                background-color: #B2A000;
                 color: white;
                 margin: 0 auto;
                 text-align: center;
-                float:left;
+                float: left;
                 top: 20px;
                 margin-bottom: 20px;
                 display: inline-block;
                 font-weight: bold;
                 font-size: 7vw;
                 
-                
-            
-             
-
-                
-                
+    
             }
 
-            .navbar-header button:hover {
-                
-                color: yellow;
-                background-color: red;
-
-                
-                
-            }
-
-           
 
             
             .navbar-collapse collapse in #myNavbar div {
@@ -516,7 +518,9 @@
                 font-size: 4vw;
             }
 
-           
+           #page_title h1 {
+               font-size: 5vw;
+           }
 
             #post_title {
                 font-size: 6vw;
@@ -525,7 +529,7 @@
          
 
             #about_blog #main_contents p , #favorite p, #journey p, #recipes p{
-               font-family: stark;
+               font-family: contra;
                font-size: 4vw;
 
             }
@@ -537,19 +541,17 @@
             #date{
                 font-size: 2vw;
                 text-align: center;
-                color: greenyellow;
+                color: black;
             }
 
             #bar{
-                border: 2px solid gold;
-                background-color: gold;
+                border: 1px dotted black;
                 width: 65vw;
                 margin: 0 auto;
             }
 
              #bar2{
-                border: 2px solid red;
-                background-color: red;
+                border: 1px dotted black;
                 width: 65vw;
                 margin: 0 auto;
             }
@@ -569,14 +571,18 @@
          
             #page_title {
                 font-size: 2vw;
-                color: white;
+                color: #B2A000;
                 text-align: center;
             }
 
-               footer{
+               #signout a, #login a, #home a{
                
-                font-size: 4vw;
+                font-size: 3vw;
                 
+            }
+
+            footer #copyright {
+                font-size: 3vw;
             }
 
             fieldset label {
@@ -591,4 +597,23 @@
                 font-size: 3vw;
             }
 
+            #username, #password {
+                font-size: 5vw;
+                
+            }
+
+            #dashboard_head, #admin_name {
+                font-size: 5vw;
+                font-family: contra;
+            }
+
+            
+            img {
+                width: 450px;
+                height: 350px;
+                display: block;
+               margin:0 auto;
+                position: relative ;
+
+            }
 }       
