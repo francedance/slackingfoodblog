@@ -548,12 +548,14 @@
                 border: 1px dotted black;
                 width: 65vw;
                 margin: 0 auto;
+                 text-align: center;
             }
 
              #bar2{
                 border: 1px dotted black;
                 width: 65vw;
                 margin: 0 auto;
+                text-align: center;
             }
 
              #photo {
