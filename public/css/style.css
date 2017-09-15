@@ -632,6 +632,16 @@
                         margin-right: auto;
                             margin: 0 auto;
                             font-size: 3vw;
+                            text-align: center;
+                           
+                            
+               }
+               
+                 #recipes_contents #contents li, #journey_contents #contents li , #favorite_contents #contents li {
+                        margin-left: auto;
+                        margin-right: auto;
+                            margin: 0 auto;
+                            font-size: 3vw;
                             text-align: left;
                            
                             
