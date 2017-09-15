@@ -610,8 +610,8 @@
             }
             
                 #recipes_contents img, #journey_contents img , #favorite_contents img {
-                        margin-left: 1vw;
-                        margin-right: 1vw;
+                        margin-left: auto;
+                        margin-right: auto;
                }
             
             img {
@@ -619,6 +619,8 @@
                 height: 80vw;
                 display: block;
                margin:0 auto;
+                   margin-left: auto;
+                   margin-right: auto;
                 position: relative ;
                 text-align: center;
 
