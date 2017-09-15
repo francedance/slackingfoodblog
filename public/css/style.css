@@ -609,8 +609,8 @@
 
             
             img {
-                width: 450px;
-                height: 350px;
+                width: auto;
+                height: auto;
                 display: block;
                margin:0 auto;
                 position: relative ;
