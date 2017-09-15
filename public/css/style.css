@@ -609,11 +609,12 @@
 
             
             img {
-                width: 320px;
-                height: 300px;
+                width: 40vw;
+                height: 35vw;
                 display: block;
                margin:0 auto;
                 position: relative ;
+                text-align: center;
 
             }
 }       
