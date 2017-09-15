@@ -569,6 +569,12 @@
                 text-align: center;
                margin-top: 20px;
             }
+               
+              #about_share .instagram_badge {
+               
+                  width: 84px;
+                  heightL 28px;
+               }
 
          
             #page_title {
