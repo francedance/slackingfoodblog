@@ -627,7 +627,7 @@
             
             img {
                 width: 85vw;
-                height: 80vw;
+                height: auto;
                 display: block;
                margin:0 auto;
                    margin-left: auto;
