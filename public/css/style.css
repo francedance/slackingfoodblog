@@ -618,7 +618,7 @@
                 font-family: contra;
             }
             
-                #recipes_contents p, #journey_contents p , #favorite_contents p {
+                #recipes_contents #contents p, #journey_contents #contents p , #favorite_contents #contents p {
                         margin-left: auto;
                         margin-right: auto;
                             margin: 0 auto;
