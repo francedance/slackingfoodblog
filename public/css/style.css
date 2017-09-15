@@ -25,7 +25,7 @@
 
             img {
                 width: 55vw;
-                height: 55vw;
+                height: auto;
                 display: block;
                margin:0 auto;
                 position: relative ;
