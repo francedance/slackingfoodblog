@@ -618,7 +618,7 @@
                 font-family: contra;
             }
             
-                #recipes_contents img, #journey_contents img , #favorite_contents img {
+                #recipes_contents p, #journey_contents p , #favorite_contents p {
                         margin-left: auto;
                         margin-right: auto;
                             margin: 0 auto;
