@@ -128,12 +128,6 @@
 
             }
 
-               #recipes_contents #contents ul , #journey_contents #contents ul  , #favorite_contents #contents ul {
-                       
-                            text-align: left;
-                           
-                            
-               }
               
 
             #about_blog #main_contents{
@@ -626,20 +620,7 @@
                 font-family: contra;
             }
             
-                #recipes_contents #contents p, #journey_contents #contents p , #favorite_contents #contents p {
-                        margin-left: auto;
-                        margin-right: auto;
-                            margin: 0 auto;
-                            font-size: 3vw;
-                            text-align: center;
-                            
-               }
-               
-              
-               
-               
-               
-            
+
             img {
                 width: 85vw;
                 height: auto;
