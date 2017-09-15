@@ -189,6 +189,12 @@
               margin-left: 50px;
             }
 
+               #about_share .instagram_badge {
+               
+                  width: 84px;
+                  height: 28px;
+               }
+
             footer a {
                 color: #B2A000;
                 font-size: 2vw;
@@ -570,11 +576,7 @@
                margin-top: 20px;
             }
                
-              #about_share .instagram_badge {
-               
-                  width: 84px;
-                  heightL 28px;
-               }
+          
 
          
             #page_title {
