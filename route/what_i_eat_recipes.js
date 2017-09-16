@@ -41,7 +41,7 @@ router.get('/',function(req ,res){
 
 });
 
-router.get('/one',function(req ,res){
+router.get('/:page',function(req ,res){
 
     var session = req.session;
 
@@ -58,7 +58,7 @@ router.get('/one',function(req ,res){
                 res.end();
                 }else{
 
-                res.render('what_i_eat_recipes_test', {session, posts});
+                res.render('what_i_eat_recipes_' + req.params.page , {session, posts});
                 res.end();
                 }
             }
@@ -68,6 +68,7 @@ router.get('/one',function(req ,res){
 
 
 });
+
 
 
 router.get('/delete/:id', function(req,res){
