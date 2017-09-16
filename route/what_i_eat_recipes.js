@@ -13,7 +13,7 @@ mongoose.connect(uri);
 
 router.use(bodyParser.urlencoded({extended: true}));
 
-router.get('/',function(req,res , next){
+router.get('/',function(req ,res){
 
     var session = req.session;
 
@@ -41,7 +41,7 @@ router.get('/',function(req,res , next){
 
 });
 
-router.get('/one',function(req,res , next){
+router.get('/one',function(req ,res){
 
     var session = req.session;
 
