@@ -41,7 +41,17 @@
 
             }
 
+           .navbar-header{
+               
+               position: fixed;
+               z-index: 1;
+           }
+
            
+
+           .icon-bar {
+               background-color:  white;
+           }
            
 
             #menu{
@@ -454,9 +464,9 @@
             }
 
         nav a {
-                color: black;
+                color: white;
                 font-size: 4.5vw;
-                font-family: kimberly;
+                font-family: contra;
                 text-decoration-line: none;
 
             }
@@ -469,9 +479,10 @@
                 color: white;
                 margin: 0 auto;
                 text-align: center;
-                float: left;
+                float: right;
                 top: 20px;
                 margin-bottom: 20px;
+                margin-right: 15vw;
                 display: inline-block;
                 font-weight: bold;
                 font-size: 7vw;
@@ -481,11 +492,12 @@
 
 
             
-            .navbar-collapse collapse in #myNavbar div {
-                margin-bottom: 10px;
-                float:left;
-                text-align: left;
-                border: none;
+            #myNavbar {
+                margin-top: 10px;
+                
+                z-index: 1;
+                position: fixed;
+                float: left;
                 
                 
                 
@@ -497,10 +509,26 @@
 
                
               
-           }
+            }
 
-           #myNavbar {
-               border: none;
+            .collapse ,.navbar-collapse  {
+                position: fixed;
+                background-color: #B2A000;
+                color: white;
+                z-index: 1;
+                margin-top: 70px;
+                margin-right: 100px;
+                width: 100%;
+            }
+
+           .collapse ,.navbar-collapse, .in, #myNavbar  {
+               position: fixed;
+               background-color: #B2A000;
+               color: white;
+               z-index: 1;
+               margin-top: 70px;
+               margin-right: 100px;
+               width: 100%;
            }
 
              
