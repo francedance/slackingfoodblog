@@ -1,0 +1,96 @@
+<!DOCTYPE Html>
+<html lang="en">
+    <head>
+        <title>Slacking Food Blog</title>
+        <meta name="viewport" content="width=device-width">
+        <% include ../public/js/scripts.html %>
+         <script>
+
+            $(document).ready(function(){
+
+            
+               $('nav').hide();
+               $('nav').fadeIn(2000);
+
+                $('#date').each(function(){
+                     var date = $(this).html();
+                   var new_date = date.slice(0,33);
+                       $(this).replaceWith("<p id='date'>" + new_date + "</p>");
+                 })
+                              
+                    
+                   
+            });
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <div id="wrapper" class="container-fluid">
+       
+
+       
+        <% include ./navigation.ejs %>
+
+               <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1>What 'I' Eat! Recipes for 'You'!</h1>
+                </div>
+
+            
+            <div id="recipes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div id="recipes_contents" >
+                    
+                    
+
+
+                    <% for(var i = 3 ; i < 6 ; i++) { %>
+                        <div id=<%= posts[i]._id %> > 
+                            <h2 id="post_title"> <%= posts[i].title %> </h2>
+                            <div id="bar">
+                            </div>
+                            <br/>
+                            <p id="date">Posted: <%= posts[i].updated %> </p>
+
+                            <br/>
+
+                            
+                             <% for (var j= 0 ; j < posts[i].images.length ; j ++) { %>
+                                    <% if (posts[i].images[j] == null || posts[i].images[j] == undefined) { %>
+                                        <% continue } else { %>
+                                            <% var url = 'http://res.cloudinary.com/slacking-food-blog/image/upload/' +   posts[i].images[j] + '.jpg' %> 
+                                            <img src=<%= url %>></img>
+                                            <br/>
+                                            <% } %>
+                                            <% } %>
+
+                            <br/>
+
+                            <p id="contents"> <%- posts[i].content %> </p>
+
+                            <div id="bar2">
+                            </div>
+                    </div>
+
+                            
+                            <br/>
+                            <br/>
+                    <% } %>
+                
+                </div>
+                </div>
+
+         
+
+        <% include ./footer.ejs %>
+       
+        </div>
+
+       
+        
+    
+    </body>
+
+
+</html>
