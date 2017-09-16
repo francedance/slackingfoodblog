@@ -30,12 +30,35 @@ router.get('/',function(req,res , next){
                 res.end();
                 }else{
 
-                    
-                   //console.log(posts[0].images[2])
-                  
-
-
                 res.render('what_i_eat_recipes', {session, posts});
+                res.end();
+                }
+            }
+
+
+        });
+
+
+});
+
+router.get('/1',function(req,res , next){
+
+    var session = req.session;
+
+   Whatieatrecipe.find({}).sort({updated: -1}).exec(function(err,posts){
+
+            
+            if(err) {
+                throw err;
+                res.redirect('/');
+                res.end();
+            }else{
+                if(session.username){
+                res.render('what_i_eat_recipes_editable', {session, posts});
+                res.end();
+                }else{
+
+                res.render('what_i_eat_recipes_test', {session, posts});
                 res.end();
                 }
             }
