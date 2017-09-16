@@ -58,7 +58,8 @@ router.get('/:page',function(req ,res){
                 res.end();
                 }else{
 
-                res.render('what_i_eat_recipes_' + req.params.page , {session, posts});
+                   var page = req.params.page;
+                res.render('what_i_eat_recipes_' + page , {session, posts});
                 res.end();
                 }
             }
