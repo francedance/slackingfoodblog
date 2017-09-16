@@ -41,7 +41,7 @@ router.get('/',function(req,res , next){
 
 });
 
-router.get('/1',function(req,res , next){
+router.get('/one',function(req,res , next){
 
     var session = req.session;
 
