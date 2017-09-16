@@ -41,7 +41,7 @@ router.get('/',function(req ,res){
 
 });
 
-router.get('/list/:page',function(req ,res){
+router.get('/:page',function(req ,res){
 
     var session = req.session;
 
