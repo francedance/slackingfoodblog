@@ -45,7 +45,8 @@ router.get('/:page',function(req ,res){
 
     var session = req.session;
 
-   Whatieatrecipe.find({}).sort({updated: -1}).exec(function(err,posts){
+    if(req.url != '/favicon.ico' && req.url != '/') {
+        Whatieatrecipe.find({}).sort({updated: -1}).exec(function(err,posts){
 
             
             if(err) {
@@ -66,6 +67,9 @@ router.get('/:page',function(req ,res){
 
 
         });
+    }
+    
+   
 
 
 });
