@@ -6,7 +6,7 @@ var Myfavoritestuff = require('../models/my_favorite_stuff.js');
 var cloudinary = require('cloudinary');
 var bodyParser = require("body-parser");
 
-var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
+var uri = process.env.MONGODB_URI;
 mongoose.connect(uri);
 
 
