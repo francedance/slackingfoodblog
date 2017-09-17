@@ -45,7 +45,7 @@
                     
 
 
-                    <% for(var i = 0 ; i < 3 ; i++) { %>
+                    <% for(var i = 0 ; i < posts.length ; i++) { %>
                         <div id=<%= posts[i]._id %> > 
                             <h2 id="post_title"> <%= posts[i].title %> </h2>
                             <div id="bar">
@@ -81,13 +81,7 @@
                 </div>
                 </div>
                 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                     <form action="/what_i_eat_recipes/test" method="GET">
-                            <span><input type="submit" value="NEXT" > </span>
-                            </form>
-
-                </div>
-
+                
          
 
         <% include ./footer.ejs %>
