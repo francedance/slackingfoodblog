@@ -12,12 +12,13 @@
                $('nav').hide();
                $('nav').fadeIn(2000);
 
-               $('#date').each(function(){
+                $('#date').each(function(){
                      var date = $(this).html();
                    var new_date = date.slice(0,33);
                        $(this).replaceWith("<p id='date'>" + new_date + "</p>");
                  })
-                       
+                              
+                    
                    
             });
 
@@ -29,31 +30,30 @@
 
         <div id="wrapper" class="container-fluid">
        
- 
+
        
         <% include ./navigation.ejs %>
 
- <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>My Food Journey</h1>
+               <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1>What 'I' Eat! Recipes for 'You'!</h1>
                 </div>
+
             
-
-            <div id="journey" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div id="journey_contents" >
+            <div id="recipes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div id="recipes_contents" >
                     
-                    <% for(var i = 0 ; i < posts.length ; i++) { %>
-                        
+                    <% for(var i = 0; i < posts.length; i++) { %>
+                        <div id=<%= posts[i]._id %> > 
                             <h2 id="post_title"> <%= posts[i].title %> </h2>
-
                             <div id="bar">
                             </div>
                             <br/>
-
-                            <p id="date">Updated: <%= posts[i].updated %> </p>
+                            <p id="date">Posted: <%= posts[i].updated %> </p>
 
                             <br/>
 
-                            <% for (var j= 0 ; j < posts[i].images.length ; j ++) { %>
+                            
+                             <% for (var j= 0 ; j < posts[i].images.length ; j ++) { %>
                                     <% if (posts[i].images[j] == null || posts[i].images[j] == undefined) { %>
                                         <% continue } else { %>
                                             <% var url = 'http://res.cloudinary.com/slacking-food-blog/image/upload/' +   posts[i].images[j] + '.jpg' %> 
@@ -63,27 +63,34 @@
                                             <% } %>
 
                             <br/>
-                             
-                            <br/>
 
                             <p id="contents"> <%- posts[i].content %> </p>
 
-                    </div>
-
                             <div id="bar2">
                             </div>
+                    </div>
+
+                            
                             <br/>
                             <br/>
                     <% } %>
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="http://slackingfoodblog.herokuapp.com/what_i_eat_recipes/1">PREVIOUS</a>
+                    </div>
+
                     <% if(posts.length == 8) { %>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <a href="http://slackingfoodblog.herokuapp.com/my_food_journey/1">NEXT</a>
-                        </div>
-                        <% } %>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="http://slackingfoodblog.herokuapp.com/what_i_eat_recipes/3">NEXT</a>
+                    </div>
+                    <% } %>
+
+                    
                 </div>
                 </div>
 
-        
+         
+
         <% include ./footer.ejs %>
        
         </div>
