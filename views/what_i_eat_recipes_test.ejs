@@ -46,20 +46,6 @@
                             <br/>
                             <p id="date">Posted: <%= posts[i].updated %> </p>
 
-                            <br/>
-
-                            
-                             <% for (var j= 0 ; j < posts[i].images.length ; j ++) { %>
-                                    <% if (posts[i].images[j] == null || posts[i].images[j] == undefined) { %>
-                                        <% continue } else { %>
-                                            <% var url = 'http://res.cloudinary.com/slacking-food-blog/image/upload/' +   posts[i].images[j] + '.jpg' %> 
-                                            <img src=<%= url %>></img>
-                                            <br/>
-                                            <% } %>
-                                            <% } %>
-
-                            <br/>
-
                             <p id="contents"> <%- posts[i].content %> </p>
 
                             <div id="bar2">
