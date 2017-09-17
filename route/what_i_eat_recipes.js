@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var ejs = require('ejs');
 
 var Whatieatrecipe = require('../models/what_i_eat_recipe.js');
 var cloudinary = require('cloudinary');
