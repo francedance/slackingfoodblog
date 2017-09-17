@@ -31,7 +31,7 @@ router.get('/',function(req ,res){
                 res.end();
                 }else{
 
-                ejs.renderFile('what_i_eat_recipes', {session, posts});
+                res.render(ejs.renderFile('what_i_eat_recipes', {session, posts}));
                 res.end();
                 }
             }
@@ -61,7 +61,7 @@ router.get('/:page',function(req ,res){
                 }else{
 
                    var page = req.params.page;
-                ejs.renderFile('what_i_eat_recipes_' + page , {session, posts});
+                res.render(ejs.renderFile('what_i_eat_recipes_' + page , {session, posts}));
                 res.end();
                 }
             }
