@@ -39,12 +39,53 @@
                 </div>
 
             
-            <div id="recipes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div id="recipes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div id="recipes_contents" >
                     
-                    <% for (var i= 3 ; i< 6 ; i++){ %>
-                        <p> <%= posts[i] %> </p>
-                        <% } %>
+                    <% for(var i = 3 ; i < 6 ; i++) { %>
+                        <div> 
+                            <h2 id="post_title"> <%= posts[i].title %> </h2>
+                            <div id="bar">
+                            </div>
+                
+                            <form action="/what_i_eat_recipes/delete/<%= posts[i].id %>" method="GET" id="delete">
+                            <span><input type="submit" value="delete" > </span>
+                            </form>
+
+                           
+                            <br/>
+                            <p id="date">Posted:  <%= posts[i].updated %> </p>
+                           
+
+                            
+                            <br/>
+
+                             <% for (var j= 0 ; j < posts[i].images.length ; j ++) { %>
+                                    <% if (posts[i].images[j] == null || posts[i].images[j] == undefined) { %>
+                                        <% continue } else { %>
+                                            <% var url = 'http://res.cloudinary.com/slacking-food-blog/image/upload/' +   posts[i].images[j] + '.jpg' %> 
+                                            <img src=<%= url %>></img>
+                                            <br/>
+                                            <% } %>
+                                            <% } %>
+                            
+                            
+                            
+
+                        
+
+                            <br/>
+
+                            <p id="contents"> <%- posts[i].content %> </p>
+
+                   
+
+                            <div id="bar2">
+                            </div>
+                            <br/>
+                            <br/>
+                    <% } %>
+               
 
 
                 </div>
