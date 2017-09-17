@@ -42,8 +42,10 @@
             <div id="recipes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div id="recipes_contents" >
                     
-                    
-                <%= posts[3].title %>
+                 <% for(var x=3 ; x < 6 ; x++) { %>
+                        <%= posts[x].title %>
+                        <%= posts[x].content %>
+                       <% } %>
 
                   
                     
