@@ -6,7 +6,7 @@ var Myfavoritestuff = require('../models/my_favorite_stuff.js');
 var cloudinary = require('cloudinary');
 var bodyParser = require("body-parser");
 
-var uri = process.env.MONGODB_URI;
+var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
 mongoose.connect(uri);
 
 
@@ -18,7 +18,7 @@ router.get('/',function(req,res){
 
     
 
-        Myfavoritestuff.find({}).sort({updated: -1}).exec(function(err,posts){
+        Myfavoritestuff.find({}).sort({updated: -1}).limit(8).exec(function(err,posts){
 
             
             if(err) {
@@ -47,6 +47,35 @@ router.get('/',function(req,res){
     
 });
 
+router.get('/:page_number',function(req,res){
+    
+        var session = req.session;
+        var skip_count = req.params.page_number * 8;
+    
+       Myfavoritestuff.find({}).sort({updated: -1}).limit(8).skip(skip_count).exec(function(err,posts){
+    
+                
+                if(err) {
+                    throw err;
+                    res.redirect('/');
+                    res.end();
+                }else{
+                    if(session.username){
+                    res.render('my_favorite_stuff_editable', {session, posts});
+                    res.end();
+                    }else{
+                        var page_number = req.params.page_number;
+                  
+                    res.render('my_favorite_stuff_' + page_number, {session, posts});
+                    res.end();
+                    }
+                }
+    
+    
+            });
+    
+    
+    });
 
 
 router.get('/delete/:id', function(req,res){

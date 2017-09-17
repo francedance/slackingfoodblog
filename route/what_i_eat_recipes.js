@@ -1,46 +1,78 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var ejs = require('ejs');
 
 var Whatieatrecipe = require('../models/what_i_eat_recipe.js');
 var cloudinary = require('cloudinary');
 var bodyParser = require('body-parser');
 
-var uri = process.env.MONGODB_URI;
+var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
 mongoose.connect(uri);
 
 
 
 router.use(bodyParser.urlencoded({extended: true}));
 
-router.get('/',function(req ,res){
+router.get('/',function(req,res , next){
 
     var session = req.session;
 
-   Whatieatrecipe.find({}).sort({updated: -1}).exec(function(err,posts){
+    
+   Whatieatrecipe.find({}).sort({updated: -1}).limit(8).exec(function(err,posts){
 
+    
             
             if(err) {
                 throw err;
                 res.redirect('/');
                 res.end();
             }else{
+
                 if(session.username){
                 res.render('what_i_eat_recipes_editable', {session, posts});
                 res.end();
                 }else{
-
                 res.render('what_i_eat_recipes', {session, posts});
                 res.end();
                 }
             }
 
-
+            
         });
-
-
+    
+      
 });
+
+
+router.get('/:page_number',function(req,res){
+    
+        var session = req.session;
+        var skip_count = req.params.page_number * 8;
+    
+       Whatieatrecipe.find({}).sort({updated: -1}).limit(8).skip(skip_count).exec(function(err,posts){
+    
+                
+                if(err) {
+                    throw err;
+                    res.redirect('/');
+                    res.end();
+                }else{
+                    if(session.username){
+                    res.render('what_i_eat_recipes_editable', {session, posts});
+                    res.end();
+                    }else{
+                        var page_number = req.params.page_number;
+                        console.log('from lists: ' + posts)
+                    res.render('what_i_eat_recipes_' + page_number, {session, posts});
+                    res.end();
+                    }
+                }
+    
+    
+            });
+    
+    
+    });
 
 
 router.get('/delete/:id', function(req,res){
