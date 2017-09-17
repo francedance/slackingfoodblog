@@ -31,7 +31,7 @@ router.get('/',function(req ,res){
                 res.end();
                 }else{
 
-                res.render(ejs.renderFile('what_i_eat_recipes', {session, posts}));
+                res.render('what_i_eat_recipes', {session, posts});
                 res.end();
                 }
             }
@@ -41,40 +41,6 @@ router.get('/',function(req ,res){
 
 
 });
-
-router.get('/:page',function(req ,res){
-
-    var session = req.session;
-
-    if(req.url != '/favicon.ico' && req.url != '/') {
-        Whatieatrecipe.find({}).sort({updated: -1}).exec(function(err,posts){
-
-            
-            if(err) {
-                throw err;
-                res.redirect('/');
-                res.end();
-            }else{
-                if(session.username){
-                res.render('what_i_eat_recipes_editable', {session, posts});
-                res.end();
-                }else{
-
-                   var page = req.params.page;
-                res.render(ejs.renderFile('what_i_eat_recipes_' + page , {session, posts}));
-                res.end();
-                }
-            }
-
-
-        });
-    }
-    
-   
-
-
-});
-
 
 
 router.get('/delete/:id', function(req,res){
