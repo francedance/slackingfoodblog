@@ -42,7 +42,10 @@
                             </div>
                             <br/>
                             <% var date = posts[i].updated %>
-                            <% var date_splice = date.slice(0,33) %>
+                            <% var date_splice = [] %>
+                            <% for (var x = 0 ; x <= 33 ; x++) { %>
+                            <% date_splice[i] = date[x] %>
+                            <% } %?
                             <p id="date">Posted: <%= date_splice %> </p>
                             
                         
