@@ -44,8 +44,8 @@
                             <% var date = posts[i].updated %>
                             <% var date_splice = [] %>
                             <% for (var x = 0 ; x <= 33 ; x++) { %>
-                            <% date_splice[i] = date[x] %>
-                            <% } %?
+                            <% date_splice[x] = date[x] %>
+                            <% } %>
                             <p id="date">Posted: <%= date_splice %> </p>
                             
                         
