@@ -41,7 +41,9 @@
                             <div id="bar">
                             </div>
                             <br/>
-                            <p id="date">Posted: <%= posts[i].updated.slice(0,33) %> </p>
+                            <% var date = posts[i].updated %>
+                            <% var date_splice = date.slice(0,33) %>
+                            <p id="date">Posted: <%= date_splice %> </p>
                             
                         
 
