@@ -171,7 +171,7 @@ router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , functio
     var content = req.body.texts;
     var imagename = [];
 
-    console.log(req.files[0].originalname);
+    
 
     for (i = 0 ; i < req.files.length ; i++){
         oldpath[i] = req.files[i].path;
