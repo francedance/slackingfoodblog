@@ -6,7 +6,7 @@ var Whatieatrecipe = require('../models/what_i_eat_recipe.js');
 var cloudinary = require('cloudinary');
 var bodyParser = require('body-parser');
 
-var uri = process.env.MONGODB_URI;
+var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
 mongoose.connect(uri);
 
 

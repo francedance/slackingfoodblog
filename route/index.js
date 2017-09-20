@@ -11,7 +11,7 @@ var Myfoodjourney = require('../models/my_food_journey.js');
 var Whatieatrecipe = require('../models/what_i_eat_recipe.js');
 var Newestposts = require('../models/newest_posts.js');
 
-var uri = process.env.MONGODB_URI;
+var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
 mongoose.connect(uri);
 
 

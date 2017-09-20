@@ -15,7 +15,15 @@
                $('nav').hide();
                $('nav').fadeIn(2000);
 
-               
+               $('#navigation_button').click(function(){
+                    
+                    if($('body').hasClass('start-scrolling')){
+                        $('body').removeClass('start-scrolling').toggleClass('stop-scrolling');
+                    }else if($('body').hasClass('stop-scrolling')){
+                        $('body').removeClass('stop-scrolling').toggleClass('start-scrolling');
+                    }
+                    
+
                     
           
                    
@@ -33,11 +41,12 @@
 
     </head>
 
-    <body >
+    <body class="start-scrolling">
 
         <div id="wrapper" class="container-fluid">
         <div class="row">
 
+            <% include ./navigation.ejs %>
 
             <div class= "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <br/>
@@ -48,24 +57,26 @@
 
            
 
-        <% include ./navigation.ejs %>
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 3vw; margin-bottom: 2vw">
+            <img src="img/goal.png"/>
+       </div>
         
-       <div id="newest_post" style="color: white">
-           <p id="whats_new" style="color:black">What's NEW!</p>
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="newest_post" style="color: white; background-color: black">
+           <p id="whats_new" style="color:white">What's NEW!</p>
            <% if(newest_recipe_title) { %>
-           <p id="newest_head" style="color:black">What 'I' Eat! Recipes for 'You'!</p>
-            <p id="newest_title" style="color:black"><a href="/what_i_eat_recipes/#"<%= newest_recipe_id %>><%= newest_recipe_title %></a></p>
+           <p id="newest_head" style="color:#B2A000">What 'I' Eat! Recipes for 'You'!</p>
+            <p id="newest_title" style="color:white"><a style="color:white; font-size: 20px" href="/what_i_eat_recipes/#"<%= newest_recipe_id %>><%= newest_recipe_title %></a></p>
             <% } %>
 
             <% if(newest_journey_title) { %>
-            <p id="newest_head" style="color:black">My Food Journey</p>
-            <p id="newest_title" style="color:black"><a href="/my_food_journey/#"<%= newest_journey_id %>><%= newest_journey_title %></a></p>
+            <p id="newest_head" style="color:#B2A000">My Food Journey</p>
+            <p id="newest_title" style="color:white"><a style="color:white; font-size: 20px" href="/my_food_journey/#"<%= newest_journey_id %>><%= newest_journey_title %></a></p>
 
             <% } %>
 
             <% if(newest_favorite_title) { %>
-            <p id="newest_head" style="color:black">My Favorite Stuff</p>
-            <p id="newest_title" style="color:black"><a href="/my_favorite_stuff/#"<%= newest_favorite_id %>><%= newest_favorite_title %></a></p>
+            <p id="newest_head" style="color:#B2A000">My Favorite Stuff</p>
+            <p id="newest_title" style="color:white"><a style="color:white; font-size: 20px" href="/my_favorite_stuff/#"<%= newest_favorite_id %>><%= newest_favorite_title %></a></p>
 
             <% } if (!newest_recipe_title && !newest_journey_title && !newest_favorite_title){ %>
                 <p id="content_notify" style="color:black"> There's no new contents! </p>

@@ -2,7 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-var uri = process.env.MONGODB_URI;;
+var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
 //mongoose.connect(process.env.MONGODB_URI);
 mongoose.connect(uri);
 
@@ -19,8 +19,8 @@ var fs = require('fs-extra');
 //var key = process.env.API_KEY;
 //var secret = process.env.API_SECRET;
 
-var key = process.env.API_KEY;
-var secret = process.env.API_SECRET;
+var key = '225692669313499';
+var secret = 'w6aqw_iXgPs0rYNIiDqYZ9ZlnqU';
 
 var Myfavoritestuff = require('../models/my_favorite_stuff.js');
 var Myfoodjourney = require('../models/my_food_journey.js');

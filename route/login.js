@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var bcrypt = require('bcryptjs');
 
-var uri = process.env.MONGODB_URI;
+var uri = 'mongodb://francedance:chicken9807@ds015889.mlab.com:15889/blog';
 mongoose.connect(uri);
 
 

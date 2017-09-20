@@ -17,6 +17,15 @@
                $('nav').hide();
                $('nav').fadeIn(2000);
 
+               $('#navigation_button').click(function(){
+                    
+                    if($('body').hasClass('start-scrolling')){
+                        $('body').removeClass('start-scrolling').toggleClass('stop-scrolling');
+                    }else if($('body').hasClass('stop-scrolling')){
+                        $('body').removeClass('stop-scrolling').toggleClass('start-scrolling');
+                    }
+                    
+
                
             });
 
@@ -24,7 +33,7 @@
 
     </head>
 
-    <body >
+    <body class="start-scrolling">
 
        <div id="fb-root"></div>
 <script>(function(d, s, id) {
