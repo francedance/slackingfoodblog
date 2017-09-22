@@ -41,6 +41,11 @@
 
             }
 
+            #goal p{
+             font-size: 50px;
+             font-family: contra;    
+             }
+
            .navbar-header{
                
                position: fixed;
