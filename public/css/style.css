@@ -214,6 +214,11 @@
           }
 
           
+                  #newest_title p a {
+                font-size: 5vw;
+             
+              
+            }
 
             #about_share {
 
@@ -655,9 +660,15 @@
             }
                
             #newest_title {
-                font-size: 3vw;
+           
                 width: 75vw;
                 margin-bottom: 2vw;
+              
+            }
+               
+                  #newest_title p a {
+                font-size: 4vw;
+             
               
             }
 
