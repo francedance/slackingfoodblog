@@ -41,6 +41,10 @@
 
             }
 
+            #goal {
+                        text-align: center;
+                  }
+
             #goal p{
              font-size: 50px;
              font-family: contra;    
