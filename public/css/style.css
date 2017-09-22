@@ -464,7 +464,10 @@
     .col-lg-12 {width: 100%;}
 
 
-          
+           #goal p{
+             font-size: 10vw;
+             font-family: contra;    
+             }
 
 
 
