@@ -1,26 +1,19 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-
 var Myfavoritestuff = require('../models/my_favorite_stuff.js');
 var cloudinary = require('cloudinary');
 var bodyParser = require("body-parser");
-
 var uri = process.env.MONGODB_URI;
 mongoose.connect(uri);
 
-
 router.use(bodyParser.urlencoded({extended: true}));
-
 router.get('/',function(req,res){
 
     var session = req.session;
 
-    
-
         Myfavoritestuff.find({}).sort({updated: -1}).limit(8).exec(function(err,posts){
 
-            
             if(err) {
                 throw err;
                 res.redirect('/');
@@ -31,16 +24,10 @@ router.get('/',function(req,res){
                 res.end();
                 }else{
 
-                    
-                   //console.log(posts[0].images[2])
-                  
-
-
                 res.render('my_favorite_stuff', {session, posts});
                 res.end();
                 }
             }
-
 
         });
         
@@ -53,8 +40,7 @@ router.get('/:page_number',function(req,res){
         var skip_count = req.params.page_number * 8;
     
        Myfavoritestuff.find({}).sort({updated: -1}).limit(8).skip(skip_count).exec(function(err,posts){
-    
-                
+
                 if(err) {
                     throw err;
                     res.redirect('/');
@@ -70,13 +56,10 @@ router.get('/:page_number',function(req,res){
                     res.end();
                     }
                 }
-    
-    
-            });
-    
-    
-    });
 
+            });
+
+    });
 
 router.get('/delete/:id', function(req,res){
 
