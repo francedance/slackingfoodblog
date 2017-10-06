@@ -1,83 +1,24 @@
 <!DOCTYPE Html>
 <html lang="en">
     <head>
-        <title>Slacking Food Blog</title>
+        <% include ./title.ejs %>
         <meta name="viewport" content="width=device-width">
         <% include ../public/js/scripts.html %>
-         <script>
-
-            $(document).ready(function(){
-
-            
-               $('nav').hide();
-               $('nav').fadeIn(2000);
-
-               $('#navigation_button').click(function(){
-                    
-                    if($('body').hasClass('start-scrolling')){
-                        $('body').removeClass('start-scrolling').toggleClass('stop-scrolling');
-                    }else if($('body').hasClass('stop-scrolling')){
-                        $('body').removeClass('stop-scrolling').toggleClass('start-scrolling');
-                    }
-                    
-
-                       
-                   
-            });
-        });
-
-        </script>
-
+        <% include ./scripts_for_scrolling_and_nav.ejs %>
     </head>
-
     <body class="start-scrolling">
 
         <div id="wrapper" class="container-fluid">
-       
- 
-       
         <% include ./navigation.ejs %>
 
  <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <h1>My Food Journey</h1>
-                </div>
-            
+   </div>
 
             <div id="journey" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div id="journey_contents" >
-                    
-                    <% for(var i = 0 ; i < posts.length ; i++) { %>
-                        
-                            <h2 id="post_title"> <%= posts[i].title %> </h2>
-
-                            <div id="bar">
-                            </div>
-                            <br/>
-
-                            <p id="date">Posted: <%= posts[i].updated %> </p>
-
-                            <br/>
-
-                            <% for (var j= 0 ; j < posts[i].images.length ; j ++) { %>
-                                    <% if (posts[i].images[j] == null || posts[i].images[j] == undefined) { %>
-                                        <% continue } else { %>
-                                            <% var url = 'http://res.cloudinary.com/slacking-food-blog/image/upload/' +   posts[i].images[j] + '.jpg' %> 
-                                            <img src=<%= url %>></img>
-                                            <br/>
-                                            <% } %>
-                                            <% } %>
-
-                            <br/>
-                           
-
-                            <p id="contents"> <%- posts[i].content %> </p>
-
-                            <div id="bar2">
-                            </div>
-                            <br/>
-                            <br/>
-                    <% } %>
-
+                   
+                   <% include ./my_food_journey_content_renderer.ejs %>
                    
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                             <a href="http://slackingfoodblog.herokuapp.com/my_food_journey/">NEXT</a>
@@ -93,13 +34,6 @@
 
         
         <% include ./footer.ejs %>
-       
         </div>
-
-       
-        
-    
     </body>
-
-
 </html>
