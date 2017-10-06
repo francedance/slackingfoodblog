@@ -1,26 +1,18 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-
 var Myfoodjourney = require('../models/my_food_journey.js');
 var cloudinary = require('cloudinary');
 var bodyParser = require("body-parser")
-
 var uri = process.env.MONGODB_URI;
 mongoose.connect(uri);
 
-
-
-
 router.use(bodyParser.urlencoded({extended: true}));
-
 router.get('/',function(req,res){
 
         var session = req.session;
 
            Myfoodjourney.find({}).sort({updated: -1}).limit(8).exec(function(err,posts){
-
-            
             if(err) {
                 throw err;
                 res.redirect('/');
@@ -35,10 +27,7 @@ router.get('/',function(req,res){
                 res.end();
                 }
             }
-
-
         });
-
 });
 
 router.get('/:page_number',function(req,res){
@@ -48,7 +37,6 @@ router.get('/:page_number',function(req,res){
     
        Myfoodjourney.find({}).sort({updated: -1}).limit(8).skip(skip_count).exec(function(err,posts){
     
-                
                 if(err) {
                     throw err;
                     res.redirect('/');
@@ -64,11 +52,7 @@ router.get('/:page_number',function(req,res){
                     res.end();
                     }
                 }
-    
-    
             });
-    
-    
     });
 
 
@@ -89,8 +73,6 @@ router.get('/delete/:id', function(req,res){
                 }
             })
         })
-
 });
-
 
 module.exports = router;
