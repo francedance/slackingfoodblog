@@ -1,7 +1,7 @@
 <!DOCTYPE Html>
 <html lang="en">
     <head>
-        <title>Slacking Food Blog</title>
+        <% include ./title.ejs %>
         <meta name="viewport" content="width=device-width">
         <meta property="og:url"           content="http://slackingfoodblog.herokuapp.com/" />
       <meta property="og:type"          content="website" />
@@ -9,27 +9,8 @@
       <meta property="og:description"   content="Slacking food recipes, Slacking food journeys, Slacking favorites!" />
       <meta property="og:image"         content="/public/img/logo.png" />
         <% include ../public/js/scripts.html %>
-         <script>
-
-            $(document).ready(function(){
-
-             
-               $('nav').hide();
-               $('nav').fadeIn(2000);
-
-               $('#navigation_button').click(function(){
-                    
-                    if($('body').hasClass('start-scrolling')){
-                        $('body').removeClass('start-scrolling').toggleClass('stop-scrolling');
-                    }else if($('body').hasClass('stop-scrolling')){
-                        $('body').removeClass('stop-scrolling').toggleClass('start-scrolling');
-                    }
-                    
-
-               
-            });
-
-        </script>
+        
+        <% include ./scripts_for_scrolling.ejs %>
 
     </head>
 
