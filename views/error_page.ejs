@@ -1,51 +1,21 @@
 <!DOCTYPE Html>
 <html lang="en">
     <head>
-        <title>Slacking Food Blog</title>
+        <% include ./title.ejs %>
         <% include ../public/js/scripts.html %>
-
-
-        <script>
-
-            $(document).ready(function(){
-
-               
-               $('nav').hide();
-               $('nav').fadeIn(2000);
-
-               
-
-             
-            });
-
-        </script>
-
-
+        <% include ./scripts_for_navigation_only.ejs %>
     </head>
 
-    <body >
-
+    <body>
+    
         <div id="wrapper" class="container-fluid">
         <div class="row" style="text-align: center">
+         <div id="error_message">
 
-
-    <div id="error_message">
-
-        <h1>The Page You're Looking For Doesn't Exist! </h1>
-        <h2> <a href="/">Click here to return to Main Page! </a></h2>
-    </div>
-
-
-      
-      
-
-
-        
-
-            </div>
-        </div>
-    
+            <h1>The Page You're Looking For Doesn't Exist! </h1>
+            <h2> <a href="/">Click here to return to Main Page! </a></h2>
+          </div>
+          </div>
+        </div> 
     </body>
-
-
 </html>
