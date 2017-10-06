@@ -1,28 +1,11 @@
 <!DOCTYPE Html>
 <html lang="en">
     <head>
-        <title>Slacking Food Blog</title>
+        <% include ./title.ejs %>
         <meta name="viewport" content="width=device-width">
         <% include ../public/js/scripts.html %>
 
-
-        <script>
-
-            $(document).ready(function(){
-
-               
-               $('nav').hide();
-               $('nav').fadeIn(2000);
-
-            
-
-
-
-
-            });
-              
-
-        </script>
+        <% include ./scripts_for_navigation_only.ejs %>
 
 
     </head>
