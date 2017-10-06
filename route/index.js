@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
@@ -15,7 +16,7 @@ router.use(bodyParser.urlencoded({extended: true}));
 router.use(cookieParser());
 
 router.use(session({
-      name: "admin",
+      name: 'admin',
       secret: process.env.SECRET, 
                     expires: new Date(Date.now() + (30 * 86400 * 1000)),
                 cookie: {maxAge: new Date(Date.now()+ 600000 )}
@@ -45,8 +46,9 @@ router.get('/',function(req,res){
 
                         newest.save(function(err){
                             if(err) throw err;
-                        })
-                    })
+                        });
+             
+                    });
 
                 }).catch(function(err){
                     console.log('error', err);
@@ -72,8 +74,8 @@ router.get('/',function(req,res){
 
                         newest.save(function(err){
                             if(err) throw err;
-                        })
-                    })
+                        });
+                    });
 
                 }).catch(function(err){
                     console.log('error', err);
@@ -100,8 +102,8 @@ router.get('/',function(req,res){
 
                         newest.save(function(err){
                             if(err) throw err;
-                        })
-                    })
+                        });
+                    });
 
                 }).catch(function(err){
                     console.log('error', err);
@@ -136,7 +138,7 @@ router.get('/',function(req,res){
                     });
                     res.end();
               
-                    })
+                    });
              
                     
                     

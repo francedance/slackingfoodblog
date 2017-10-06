@@ -1,9 +1,9 @@
+'use strict';
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Myfavoritestuff = require('../models/my_favorite_stuff.js');
-var cloudinary = require('cloudinary');
-var bodyParser = require("body-parser");
+var bodyParser = require('body-parser');
 var uri = process.env.MONGODB_URI;
 mongoose.connect(uri);
 
@@ -15,8 +15,7 @@ router.get('/',function(req,res){
         Myfavoritestuff.find({}).sort({updated: -1}).limit(8).exec(function(err,posts){
 
             if(err) {
-                throw err;
-                res.redirect('/');
+                res.send(err);
                 res.end();
             }else{
                 if(session.username){
@@ -42,8 +41,7 @@ router.get('/:page_number',function(req,res){
        Myfavoritestuff.find({}).sort({updated: -1}).limit(8).skip(skip_count).exec(function(err,posts){
 
                 if(err) {
-                    throw err;
-                    res.redirect('/');
+                    res.send(err);
                     res.end();
                 }else{
                     if(session.username){
@@ -68,16 +66,15 @@ router.get('/delete/:id', function(req,res){
 
             post.remove(function(err){
                 if(err){
-                     throw err;
-                    res.redirect('/');
+                    res.send(err);
                     res.end();
                 }
                 else{
                     res.redirect('/my_favorite_stuff');
                     res.end();
                 }
-            })
-        })
+            });
+        });
 
 });
 

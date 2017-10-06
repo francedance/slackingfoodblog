@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -24,7 +25,7 @@ var router = express.Router();
 router.use(bodyParser.urlencoded({extended: true}));
 
 router.use(session({
-      name: "admin",
+      name: 'admin',
       secret: process.env.SECRET, 
                     expires: new Date(Date.now() + (30 * 86400 * 1000)),
                 cookie: {maxAge: new Date(Date.now()+ 600000 )}
@@ -39,7 +40,7 @@ router.get('/',function(req,res){
         res.end();
         
     }else{
-        res.render("dashboard",{session});
+        res.render('dashboard',{session});
         res.end();  
     }
 });
@@ -54,16 +55,16 @@ router.post('/upload_to_my_favorite_stuff' , upload.array('imagefile', 5) , func
     var title = req.body.title;
     var content = req.body.texts;
     var imagename = [];
-    var img_url = [];
+    
 
-    for (i = 0 ; i < req.files.length ; i++){
+    for (var i = 0 ; i < req.files.length ; i++){
         oldpath[i] = req.files[i].path;
-        newpath[i] = "./upload/" + req.files[i].originalname;
+        newpath[i] = './upload/' + req.files[i].originalname;
         imagename[i] = req.files[i].originalname;
     }
    
-    for(i = 0 ; i < req.files.length ; i++){
-            fs.rename(oldpath[i], newpath[i], function (err) {
+    for(var o = 0 ; o < req.files.length ; o++){
+            fs.rename(oldpath[o], newpath[o], function (err) {
                   if(err) throw err;
   
         });
@@ -81,13 +82,13 @@ router.post('/upload_to_my_favorite_stuff' , upload.array('imagefile', 5) , func
            api_secret: secret 
            });
 
-       for(i = 0 ; i < req.files.length ; i++){
-            cloudinary.uploader.upload(newpath[i],
+       for(var p = 0 ; p < req.files.length ; p++){
+            cloudinary.uploader.upload(newpath[p],
               function(result) { 
                console.log(result); 
                 }, 
                {
-                   public_id: imagename[i],
+                   public_id: imagename[p],
                });
         }
           
@@ -96,18 +97,18 @@ router.post('/upload_to_my_favorite_stuff' , upload.array('imagefile', 5) , func
         console.log('post to my favorite stuff successfully saved!');
      });
 
-     for(i = 0 ; i < req.files.length ; i++) {
-     del(['./upload/' + imagename[i]]);
+     for(var a = 0 ; a < req.files.length ; a++) {
+     del(['./upload/' + imagename[a]]);
      }
           
      res.redirect('/my_favorite_stuff');
      res.end();
     }else{
-         var title = req.body.title;
-        var content = req.body.texts;
-        var imagename = undefined;
+         title = req.body.title;
+        	content = req.body.texts;
+        	imagename = undefined;
 
-        var post = new Myfavoritestuff ({
+        post = new Myfavoritestuff ({
         title: title,
         imagename: imagename,
         content: content
@@ -133,15 +134,15 @@ router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , functio
     var content = req.body.texts;
     var imagename = [];
           
-    for (i = 0 ; i < req.files.length ; i++){
+    for (var i = 0 ; i < req.files.length ; i++){
         oldpath[i] = req.files[i].path;
-        newpath[i] = "./upload/" + req.files[i].originalname;
+        newpath[i] = './upload/' + req.files[i].originalname;
         imagename[i] = req.files[i].originalname;
     }
    
 
-    for(i = 0 ; i < req.files.length ; i++){
-            fs.rename(oldpath[i], newpath[i], function (err) {
+    for(var o = 0 ; o < req.files.length ; o++){
+            fs.rename(oldpath[o], newpath[o], function (err) {
                   if(err) throw err;
   
             });
@@ -160,12 +161,12 @@ router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , functio
            api_secret: secret 
            });
   
-        for(i = 0 ; i < req.files.length ; i++){
-                   cloudinary.uploader.upload(newpath[i],
+        for(var p = 0 ; p < req.files.length ; p++){
+                   cloudinary.uploader.upload(newpath[p],
                                function(result) { 
                                     console.log(result); }, 
                                     {
-                                      public_id: imagename[i],
+                                      public_id: imagename[p],
                    
                                     });
 
@@ -176,8 +177,8 @@ router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , functio
         console.log('post to my food journey successfully saved!');
      });
 
-     for(i = 0 ; i < req.files.length ; i++) {
-     del(['./upload/' + imagename[i]]);
+     for(var a = 0 ; a < req.files.length ; a++) {
+     del(['./upload/' + imagename[a]]);
      }
           
      res.redirect('/my_food_journey');
@@ -185,11 +186,11 @@ router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , functio
           
     }else{
           
-        var title = req.body.title;
-        var content = req.body.texts;
-        var imagename = undefined;
+         title = req.body.title;
+         content = req.body.texts;
+         imagename = undefined;
 
-        var post = new Myfoodjourney ({
+         post = new Myfoodjourney ({
         title: title,
         imagename: imagename,
         content: content
@@ -216,21 +217,21 @@ router.post('/upload_to_what_i_eat_recipe' , upload.array('imagefile',5) , funct
           var content = req.body.texts;
           var imagename = [];
 
-    for (i = 0 ; i < req.files.length ; i++){
+    for (var i = 0 ; i < req.files.length ; i++){
               oldpath[i] = req.files[i].path;
-              newpath[i] = "./upload/" + req.files[i].originalname;
+              newpath[i] = './upload/' + req.files[i].originalname;
               imagename[i] = req.files[i].originalname;
       }
    
    
-    for(i = 0 ; i < req.files.length ; i++){
-      fs.rename(oldpath[i], newpath[i], function (err) {
+    for(var o = 0 ; o < req.files.length ; o++){
+      fs.rename(oldpath[o], newpath[o], function (err) {
            if(err) throw err;
   
       });
     }
 
-    var post = new Whatieatrecipe({
+     post = new Whatieatrecipe({
        title: title,
        images: [imagename[0], imagename[1], imagename[2], imagename[3], imagename[4]],
        content: content
@@ -243,12 +244,12 @@ router.post('/upload_to_what_i_eat_recipe' , upload.array('imagefile',5) , funct
            });
 
             
-        for(i = 0 ; i < req.files.length ; i++){
-    cloudinary.uploader.upload(newpath[i],
+        for(var p = 0 ; p < req.files.length ; p++){
+    cloudinary.uploader.upload(newpath[p],
                 function(result) { 
                console.log(result); }, 
                {
-                   public_id: imagename[i],
+                   public_id: imagename[p],
                } );
 
         }
@@ -260,16 +261,16 @@ router.post('/upload_to_what_i_eat_recipe' , upload.array('imagefile',5) , funct
      });
 
 
-     for(i = 0 ; i < req.files.length ; i++) {
-     del(['./upload/' + imagename[i]]);
+     for(var a = 0 ; a < req.files.length ; a++) {
+     del(['./upload/' + imagename[a]]);
 
      }
      res.redirect('/what_i_eat_recipes');
      res.end();
     }else{
-         var title = req.body.title;
-        var content = req.body.texts;
-        var imagename = undefined;
+         title = req.body.title;
+         content = req.body.texts;
+         imagename = undefined;
 
         var post = new Whatieatrecipe ({
         title: title,
@@ -292,7 +293,7 @@ router.post('/upload_to_what_i_eat_recipe' , upload.array('imagefile',5) , funct
 router.get('*',function(req,res){
 
   
-    res.status(404).render("error_page");
+    res.status(404).render('error_page');
     res.end();
     
     //error code, 404
@@ -300,3 +301,7 @@ router.get('*',function(req,res){
 });
 
 module.exports = router;
+
+
+
+

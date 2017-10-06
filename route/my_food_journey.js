@@ -1,9 +1,9 @@
+'use strict';
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Myfoodjourney = require('../models/my_food_journey.js');
-var cloudinary = require('cloudinary');
-var bodyParser = require("body-parser")
+var bodyParser = require('body-parser');
 var uri = process.env.MONGODB_URI;
 mongoose.connect(uri);
 
@@ -14,8 +14,7 @@ router.get('/',function(req,res){
 
            Myfoodjourney.find({}).sort({updated: -1}).limit(8).exec(function(err,posts){
             if(err) {
-                throw err;
-                res.redirect('/');
+                res.send(err);
                 res.end();
             }else{
                 if(session.username){
@@ -63,16 +62,15 @@ router.get('/delete/:id', function(req,res){
 
             post.remove(function(err){
                 if(err){
-                     throw err;
-                    res.redirect('/');
+                    res.send(err);
                     res.end();
                 }
                 else{
                     res.redirect('/my_food_journey');
                     res.end();
                 }
-            })
-        })
+            });
+        });
 });
 
 module.exports = router;
