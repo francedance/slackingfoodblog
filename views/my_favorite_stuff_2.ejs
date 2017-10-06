@@ -1,42 +1,15 @@
 <!DOCTYPE Html>
 <html lang="en">
     <head>
-        <title>Slacking Food Blog</title>
+        <% include ./title.ejs %>
         <meta name="viewport" content="width=device-width">
         <% include ../public/js/scripts.html %>
-         <script>
-
-            $(document).ready(function(){
-
-            
-               $('nav').hide();
-               $('nav').fadeIn(2000);
-
-               $('#navigation_button').click(function(){
-                    
-                    if($('body').hasClass('start-scrolling')){
-                        $('body').removeClass('start-scrolling').toggleClass('stop-scrolling');
-                    }else if($('body').hasClass('stop-scrolling')){
-                        $('body').removeClass('stop-scrolling').toggleClass('start-scrolling');
-                    }
-                    
-
-                       
-                   
-            });
-
-        });
-
-        </script>
-
+        <% include ./scripts_for_scrolling_and_nav.ejs %>
     </head>
 
     <body class="start-scrolling" >
-
         <div id="wrapper" class="container-fluid">
-       
-
-       
+        
         <% include ./navigation.ejs %>
 
          <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -64,12 +37,8 @@
                                             <br/>
                                             <% } %>
                                             <% } %>
-
                             <br/>
-                        
-
                             <p id="contents"> <%- posts[i].content %> </p>
-
 
                             <div id="bar2">
                             </div>
@@ -89,16 +58,7 @@
                 </div>
                 </div>
 
-
-
         <% include ./footer.ejs %>
-       
         </div>
-
-       
-        
-    
     </body>
-
-
 </html>
