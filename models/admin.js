@@ -8,9 +8,6 @@ var adminSchema = new Schema({
     
 });
 
-
-
 var admin = mongoose.model('admin', adminSchema);
-
 
 module.exports = admin;
