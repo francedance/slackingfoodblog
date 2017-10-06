@@ -1,43 +1,17 @@
 <!DOCTYPE Html>
 <html lang="en">
     <head>
-        <title>Slacking Food Blog</title>
+        <% include ./title.ejs %>
          <meta name="viewport" content="width=device-width">
         <% include ../public/js/scripts.html %>
-
-
-        <script>
-
-            $(document).ready(function(){
-
-               
-
-               $('nav').hide();
-               $('nav').fadeIn(2000);
-
-               $('#navigation_button').click(function(){
-                    
-                    if($('body').hasClass('start-scrolling')){
-                        $('body').removeClass('start-scrolling').toggleClass('stop-scrolling');
-                    }else if($('body').hasClass('stop-scrolling')){
-                        $('body').removeClass('stop-scrolling').toggleClass('start-scrolling');
-                    }
-                    
-
-                    
-          
-                   
-            });
-
-        </script>
-
+        <% include ./scripts_for_scrolling_and_nav.ejs %>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6112916663924754",
-    enable_page_level_ads: true
-  });
-</script>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-6112916663924754",
+                enable_page_level_ads: true
+              });
+        </script>
 
     </head>
 
@@ -54,8 +28,6 @@
                 <a id="logo" href="/"><img class="img-responsive" src="img/logo.png" alt="Logo"/></a>
                  
             </div>
-
-           
 
        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="goal" >
             <p style="color: #B2A000 ">Slackingly...</p>
