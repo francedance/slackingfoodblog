@@ -3,38 +3,29 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('cookie-session');
-
 var mongoose = require('mongoose');
-
 var Myfavoritestuff = require('../models/my_favorite_stuff.js');
 var Myfoodjourney = require('../models/my_food_journey.js');
 var Whatieatrecipe = require('../models/what_i_eat_recipe.js');
 var Newestposts = require('../models/newest_posts.js');
-
 var uri = process.env.MONGODB_URI;
 mongoose.connect(uri);
-
 
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(cookieParser());
 
-
 router.use(session({
       name: "admin",
-      secret: "Linux1994", 
+      secret: process.env.SECRET, 
                     expires: new Date(Date.now() + (30 * 86400 * 1000)),
                 cookie: {maxAge: new Date(Date.now()+ 600000 )}
             
     }));
 
-
-
 router.get('/',function(req,res){
            
         var session = req.session; 
-
         
-                     
         //Sorting the current What I Eat Recipes database in newest to oldest older.
         //Just retrieve one post (newest) then update Newestposts database.
             var promise = Whatieatrecipe.find({}).sort({updated: -1}).exec();
