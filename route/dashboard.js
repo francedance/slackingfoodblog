@@ -45,8 +45,8 @@ router.post('/upload_to_my_favorite_stuff' , upload.array('imagefile', 5) , func
       
     if(req.files)
         {
-          var oldpath = null;
-          var newpath = null;
+          var oldpath = [null];
+          var newpath = [null];
           var title = req.body.title;
           var content = req.body.texts;
           var imagename = [null, null, null, null, null];
@@ -120,8 +120,8 @@ router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , functio
 
     if(req.files)
         {
-            var oldpath = null;
-            var newpath = null;
+            var oldpath = [null];
+            var newpath = [null];
             var title = req.body.title;
             var content = req.body.texts;
             var imagename = [null, null, null, null, null];
@@ -196,8 +196,8 @@ router.post('/upload_to_what_i_eat_recipe' , upload.array('imagefile',5) , funct
     
     if(req.files)
     {
-          var oldpath = null;
-          var newpath = null;
+          var oldpath = [null];
+          var newpath = [null];
           var title = req.body.title;
           var content = req.body.texts;
           var imagename = [null, null, null, null, null];
