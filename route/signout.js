@@ -5,8 +5,8 @@ var session = require('cookie-session');
 
 router.get('/', function(req,res){
    req.session = null;
-    res.redirect('/');
-    res.end();
+   res.redirect('/');
+   res.end();
 });
 
 module.exports = router;
