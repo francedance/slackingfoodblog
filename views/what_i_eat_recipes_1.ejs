@@ -2,9 +2,8 @@
 <html lang="en">
     <head>
         <% include ./title.ejs %>
-        <meta name="viewport" content="width=device-width">
-        <% include ../public/js/scripts.html %>
-        <% include ./scripts_for_scrolling_and_nav.ejs %>
+        <% include ./stylesheets.ejs %>
+        <meta name="viewport" content="width=device-width"> 
     </head>
     <body class="start-scrolling">
 
@@ -34,5 +33,7 @@
 
         <% include ./footer.ejs %>
         </div>
+        <% include ./basic_scripts.ejs%>
+        <% include ./scripts_for_scrolling_and_nav.ejs %>
     </body>
 </html>
