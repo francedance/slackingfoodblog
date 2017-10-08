@@ -4,10 +4,10 @@
         <% include ./title.ejs %>
         <meta name="viewport" content="width=device-width">
         <meta property="og:url"           content="http://slackingfoodblog.herokuapp.com/" />
-      <meta property="og:type"          content="website" />
-      <meta property="og:title"         content="Slacking Food Blog" />
-      <meta property="og:description"   content="Slacking food recipes, Slacking food journeys, Slacking favorites!" />
-      <meta property="og:image"         content="/public/img/logo.png" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Slacking Food Blog" />
+        <meta property="og:description"   content="Slacking food recipes, Slacking food journeys, Slacking favorites!" />
+        <meta property="og:image"         content="/public/img/logo.png" />
         <% include ../public/js/scripts.html %>
         
         <% include ./scripts_for_scrolling_and_nav.ejs %>
@@ -17,13 +17,18 @@
     <body class="start-scrolling">
 
        <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+       
+        <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+        </script>
+        
         <div id="wrapper" class="container-fluid">
        
         <% include ./navigation.ejs %>
