@@ -13,7 +13,7 @@ app.use(session({
       secret: process.env.SECRET, 
       expires: new Date(Date.now() + (30 * 86400 * 1000)),
       cookie: {maxAge: new Date(Date.now()+ 600000 )}      
-    }));
+      }));
 
 var index = require('./route/index.js');
 var AboutBlog = require('./route/about_blog.js');
