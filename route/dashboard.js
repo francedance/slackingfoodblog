@@ -79,7 +79,7 @@ router.post('/upload_to_my_favorite_stuff' , upload.array('imagefile', 5) , func
 
             for(var p = 0 ; p < req.files.length ; p++)
                  {
-                   cloudinary.uploader.upload(newpath[p],{public_id: imagename[p]},printUploadResult);
+                   cloudinary.uploader.upload(newpath[p],printUploadResult,{public_id: imagename[p]});
                  }
           
    post.save(function(err){
@@ -155,7 +155,7 @@ router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , functio
   
             for(var p = 0 ; p < req.files.length ; p++)
             {
-              cloudinary.uploader.upload(newpath[p],{public_id: imagename[p]},printUploadResult);
+              cloudinary.uploader.upload(newpath[p],printUploadResult,{public_id: imagename[p]});
             }
     
             post.save(function(err){
@@ -230,7 +230,7 @@ router.post('/upload_to_what_i_eat_recipe' , upload.array('imagefile',5) , funct
             
            for(var p = 0 ; p < req.files.length ; p++)
            {
-              cloudinary.uploader.upload(newpath[p],{public_id: imagename[p]},printUploadResult);
+              cloudinary.uploader.upload(newpath[p],printUploadResult,{public_id: imagename[p]});
            }
           
           post.save(function(err){
