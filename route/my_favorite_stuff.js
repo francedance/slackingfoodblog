@@ -11,26 +11,24 @@ router.use(bodyParser.urlencoded({extended: true}));
 router.get('/',function(req,res){
 
     var session = req.session;
-
         Myfavoritestuff.find({}).sort({updated: -1}).limit(8).exec(function(err,posts){
-
-            if(err) {
-                res.send(err);
-                res.end();
-            }else{
-                if(session.username){
-                res.render('my_favorite_stuff_editable', {session, posts});
-                res.end();
-                }else{
-
+            if(err)
+            {
+               res.send(err);
+               res.end();
+            }else
+            {
+               if(session.username)
+               {
+                 res.render('my_favorite_stuff_editable', {session, posts});
+                 res.end();
+               }else
+               {
                 res.render('my_favorite_stuff', {session, posts});
                 res.end();
-                }
+               }
             }
-
-        });
-        
-    
+        }); 
 });
 
 router.get('/:page_number',function(req,res){
@@ -38,45 +36,43 @@ router.get('/:page_number',function(req,res){
         var session = req.session;
         var skip_count = req.params.page_number * 8;
     
-       Myfavoritestuff.find({}).sort({updated: -1}).limit(8).skip(skip_count).exec(function(err,posts){
-
-                if(err) {
-                    res.send(err);
-                    res.end();
-                }else{
-                    if(session.username){
+        Myfavoritestuff.find({}).sort({updated: -1}).limit(8).skip(skip_count).exec(function(err,posts){
+                if(err)
+                {
+                   res.send(err);
+                   res.end();
+                }else
+                {
+                  if(session.username)
+                  {
                     res.render('my_favorite_stuff_editable', {session, posts});
                     res.end();
-                    }else{
-                        var page_number = req.params.page_number;
-                  
-                    res.render('my_favorite_stuff_' + page_number, {session, posts});
-                    res.end();
-                    }
+                   }else
+                   {
+                     var page_number = req.params.page_number;
+                     res.render('my_favorite_stuff_' + page_number, {session, posts});
+                     res.end();
+                   }
                 }
-
             });
-
     });
 
 router.get('/delete/:id', function(req,res){
-
         Myfavoritestuff.findById(req.params.id , function(err,post){
             if(err) throw err;
-
             post.remove(function(err){
-                if(err){
-                    res.send(err);
-                    res.end();
+                if(err)
+                {
+                  res.send(err);
+                  res.end();
                 }
-                else{
-                    res.redirect('/my_favorite_stuff');
-                    res.end();
+                else
+                {
+                  res.redirect('/my_favorite_stuff');
+                  res.end();
                 }
             });
         });
-
 });
-
 
 module.exports = router;
