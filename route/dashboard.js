@@ -94,25 +94,26 @@ router.post('/upload_to_my_favorite_stuff' , upload.array('imagefile', 5) , func
               
            res.redirect('/my_favorite_stuff');
            res.end();
-    }else{
-         title = req.body.title;
-         content = req.body.texts;
-         imagename = null;
+    }else
+    {
+      title = req.body.title;
+      content = req.body.texts;
+      imagename = null;
 
-         post = new Myfavoritestuff ({
-           title: title,
-           imagename: imagename,
-           content: content
-         });
-          
-         post.save(function(err){
-            if(err) throw(err);
-             console.log('post to my favorite stuff successfully saved!');
-         });
-          
-         res.redirect('/my_favorite_stuff');
-         res.end();
-         }
+      post = new Myfavoritestuff ({
+                 title: title,
+                 imagename: imagename,
+                 content: content
+      });
+
+      post.save(function(err){
+           if(err) throw(err);
+              console.log('post to my favorite stuff successfully saved!');
+      });
+
+      res.redirect('/my_favorite_stuff');
+      res.end();
+     }
 });
 
 router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , function(req,res){
@@ -169,7 +170,8 @@ router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , functio
           
            res.redirect('/my_food_journey');
            res.end(); 
-      }else{
+      }else
+      {
            title = req.body.title;
            content = req.body.texts;
            imagename = null;
@@ -187,7 +189,7 @@ router.post('/upload_to_my_food_journey' , upload.array('imagefile',5) , functio
           
            res.redirect('/my_food_journey');
            res.end();
-    }
+      }
 });
 
 router.post('/upload_to_what_i_eat_recipe' , upload.array('imagefile',5) , function(req,res){
@@ -244,7 +246,8 @@ router.post('/upload_to_what_i_eat_recipe' , upload.array('imagefile',5) , funct
           
            res.redirect('/what_i_eat_recipes');
            res.end();
-    }else{
+    }else
+    {
          title = req.body.title;
          content = req.body.texts;
          imagename = null;
