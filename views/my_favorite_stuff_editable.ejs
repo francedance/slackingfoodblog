@@ -2,9 +2,8 @@
 <html lang="en">
     <head>
         <% include ./title.ejs %>
-        <meta name="viewport" content="width=device-width">
-        <% include ../public/js/scripts.html %>
-        <% include ./scripts_for_navigation_only.ejs %>
+        <meta name="viewport" content="width=device-width"> 
+        <% include ./stylesheets.ejs %>
     </head>
     <body >
 
@@ -24,5 +23,7 @@
                 </div>
         <% include ./footer.ejs %>
         </div>
+        <% include ./basic_scripts.ejs%>
+        <% include ./scripts_for_navigation_only.ejs %>
     </body>
 </html>
