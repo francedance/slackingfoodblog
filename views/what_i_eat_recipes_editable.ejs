@@ -7,28 +7,19 @@
     </head>
 
     <body>
-
         <div id="wrapper" class="container-fluid">
-
         <% include ./navigation.ejs %>
-
              <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>What 'I' Eat! Recipes for 'You'!</h1>
-                </div>
-
-            <div id="recipes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h1>What 'I' Eat! Recipes for 'You'!</h1>
+             </div>
+             <div id="recipes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div id="recipes_contents" >
-                    
                     <% include ./what_i_eat_recipes_editable_content_renderer.ejs %>
-                
                 </div>
-                </div>
-
-
+             </div>
         <% include ./footer.ejs %>
-       
         </div>
         <% include ./basic_scripts.ejs%>
         <% include ./scripts_for_navigation_only.ejs %>
-    </body>
+   </body>
 </html>
