@@ -5,36 +5,31 @@
         <meta name="viewport" content="width=device-width">
         <% include ./stylesheets.ejs %>
     </head>
+    
     <body class="start-scrolling">
-
         <div id="wrapper" class="container-fluid">
-        <% include ./navigation.ejs %>
-
- <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>My Food Journey</h1>
-   </div>
-
-            <div id="journey" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div id="journey_contents" >
-                   
-                   <% include ./my_food_journey_content_renderer.ejs %>
-                   
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <a href="http://slackingfoodblog.herokuapp.com/my_food_journey/">NEXT</a>
-                        </div>
+            <% include ./navigation.ejs %>
+                <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <h1>My Food Journey</h1>
+                </div>
+                
+                <div id="journey" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="journey_contents" >
+                        <% include ./my_food_journey_content_renderer.ejs %>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <a href="http://slackingfoodblog.herokuapp.com/my_food_journey/">NEXT</a>
+                            </div>
                       
-                    <% if(posts.length == 8) { %>
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <a href="http://slackingfoodblog.herokuapp.com/my_food_journey/2">NEXT</a>
-                        </div>
-                        <% } %>
+                         <% if(posts.length == 8) { %>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <a href="http://slackingfoodblog.herokuapp.com/my_food_journey/2">NEXT</a>
+                            </div>
+                         <% } %>
+                    </div>
                 </div>
-                </div>
-
-        
-        <% include ./footer.ejs %>
+            <% include ./footer.ejs %>
         </div>
-        <% include ./basic_scripts.ejs%>
-        <% include ./scripts_for_scrolling_and_nav.ejs %>
+       <% include ./basic_scripts.ejs%>
+       <% include ./scripts_for_scrolling_and_nav.ejs %>
     </body>
 </html>
