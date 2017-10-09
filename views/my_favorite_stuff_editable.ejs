@@ -6,24 +6,20 @@
         <% include ./stylesheets.ejs %>
     </head>
     <body >
-
         <div id="wrapper" class="container-fluid">
-
         <% include ./navigation.ejs %>
-
         <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>My Favorite Stuff</h1>
-                </div>
-
-            <div id="favorite" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div id="favorite_contents" >
-                    
-                    <% include ./my_favorite_stuff_editable_content_renderer.ejs %>
-                </div>
-                </div>
+          <h1>My Favorite Stuff</h1>
+        </div>
+        
+        <div id="favorite" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div id="favorite_contents" >
+              <% include ./my_favorite_stuff_editable_content_renderer.ejs %>
+           </div>
+        </div>
         <% include ./footer.ejs %>
         </div>
-        <% include ./basic_scripts.ejs%>
-        <% include ./scripts_for_navigation_only.ejs %>
-    </body>
+       <% include ./basic_scripts.ejs%>
+       <% include ./scripts_for_navigation_only.ejs %>
+   </body>
 </html>
