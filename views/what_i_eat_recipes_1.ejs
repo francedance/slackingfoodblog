@@ -6,34 +6,27 @@
         <% include ./stylesheets.ejs %>
     </head>
     <body class="start-scrolling">
-
         <div id="wrapper" class="container-fluid">
-
         <% include ./navigation.ejs %>
-
-               <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>What 'I' Eat! Recipes for 'You'!</h1>
-                </div>
-
+           <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h1>What 'I' Eat! Recipes for 'You'!</h1>
+            </div>
             <div id="recipes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div id="recipes_contents" >
-                   
                    <% include ./what_i_eat_recipes_content_renderer.ejs %>
-                   
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="http://slackingfoodblog.herokuapp.com/what_i_eat_recipes/">PREVIOUS</a>
-                    </div>
-                    <% if(posts.length == 8) { %>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <a href="http://slackingfoodblog.herokuapp.com/what_i_eat_recipes/2">NEXT</a>
-                    </div>
-                    <% } %>
+                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                      <a href="http://slackingfoodblog.herokuapp.com/what_i_eat_recipes/">PREVIOUS</a>
+                   </div>
+                   <% if(posts.length == 8) { %>
+                      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                          <a href="http://slackingfoodblog.herokuapp.com/what_i_eat_recipes/2">NEXT</a>
+                      </div>
+                   <% } %>
                 </div>
-                </div>
-
+            </div>
         <% include ./footer.ejs %>
         </div>
         <% include ./basic_scripts.ejs%>
         <% include ./scripts_for_scrolling_and_nav.ejs %>
-    </body>
+   </body>
 </html>
