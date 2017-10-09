@@ -4,36 +4,27 @@
         <% include ./title.ejs %>
         <meta name="viewport" content="width=device-width">
         <% include ./stylesheets.ejs %>
-        
     </head>
 
     <body class="start-scrolling" >
         <div id="wrapper" class="container-fluid">
- 
-        <% include ./navigation.ejs %>
-
-         <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <% include ./navigation.ejs %>
+                <div id="page_title" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <h1>My Favorite Stuff</h1>
                 </div>
-
-            <div id="favorite" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div id="favorite_contents" >
-                 
-                    <% include ./my_favorite_stuff_content_renderer.ejs %>
-                    
-                    <% if(posts.length == 8) { %>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <a href="http://slackingfoodblog.herokuapp.com/my_favorite_stuff/1">NEXT</a>
-                        </div>
-                    <% } %>
-                
-                </div>
-                </div>
-
-        <% include ./footer.ejs %>
-       
-        </div>
-    <% include ./basic_scripts.ejs%>
-    <% include ./scripts_for_scrolling_and_nav.ejs %>
-    </body>
+                <div id="favorite" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="favorite_contents" >
+                        <% include ./my_favorite_stuff_content_renderer.ejs %>
+                        <% if(posts.length == 8) { %>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <a href="http://slackingfoodblog.herokuapp.com/my_favorite_stuff/1">NEXT</a>
+                            </div>
+                        <% } %>
+                    </div>
+               </div>
+         <% include ./footer.ejs %>
+       </div>
+       <% include ./basic_scripts.ejs%>
+       <% include ./scripts_for_scrolling_and_nav.ejs %>
+   </body>
 </html>
