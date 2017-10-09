@@ -1,43 +1,37 @@
 <!DOCTYPE Html>
 <html lang="en">
-    <head>
-        <% include ./title.ejs %>
-        <meta name="viewport" content="width=device-width">
-        <% include ./stylesheets.ejs %>
-        
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-6112916663924754",
-                enable_page_level_ads: true
-              });
-        </script>
-    </head>
-
-    <body class="start-scrolling">
-
+<head>
+  <% include ./title.ejs %>
+  <meta name="viewport" content="width=device-width">
+  <% include ./stylesheets.ejs %>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+     google_ad_client: "ca-pub-6112916663924754",
+     enable_page_level_ads: true});
+  </script>
+</head>
+<body class="start-scrolling">
         <div id="wrapper" class="container-fluid">
-        <div class="row">
-
-            <% include ./navigation.ejs %>
-
-            <div class= "col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <br/>
-                <br/>
-                <a id="logo" href="/"><img class="img-responsive" src="img/logo.png" alt="Logo"/></a>
-            </div>
-
-       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="goal" >
-            <p style="color: #B2A000 ">Slackingly...</p>
-            <p style="color: black">&nbsp &nbsp &nbsp IMITATE RESTAURANT FOODS</p>
-            <p style="color: black">&nbsp &nbsp &nbsp &nbsp &nbspFIND CHEAP DELICACIES</p>
-            <p style="color: black">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp COOK HYBRID CUISINES</p>
-            <p style="color: black">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspFIND A HIDDEN GEM</p>
-       </div>
+            <div class="row">
+                <% include ./navigation.ejs %>
+                    <div class= "col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <br/>
+                    <br/>
+                    <a id="logo" href="/"><img class="img-responsive" src="img/logo.png" alt="Logo"/></a>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="goal" >
+                    <p style="color: #B2A000 ">Slackingly...</p>
+                    <p style="color: black">&nbsp &nbsp &nbsp IMITATE RESTAURANT FOODS</p>
+                    <p style="color: black">&nbsp &nbsp &nbsp &nbsp &nbspFIND CHEAP DELICACIES</p>
+                    <p style="color: black">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp COOK HYBRID CUISINES</p>
+                    <p style="color: black">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspFIND A HIDDEN GEM</p>
+                    </div>
         
-        <% include ./what's_new.ejs %>
-        <% include ./footer.ejs %>
-         </div>
+                <% include ./what's_new.ejs %>
+                <% include ./footer.ejs %>
+            </div>
         </div>
     <% include ./basic_scripts.ejs %>
     <% include ./scripts_for_scrolling_and_nav.ejs %>
