@@ -1,16 +1,14 @@
  <script>
 'use strict';
   $(document).ready(function(){
-
    $('nav').hide();
    $('nav').fadeIn(2000);
     
-    $('#navigation_button').click(function(){
+   $('#navigation_button').click(function(){
       if($('body').hasClass('start-scrolling')){
         $('body').removeClass('start-scrolling').toggleClass('stop-scrolling');
           }else if($('body').hasClass('stop-scrolling')){
             $('body').removeClass('stop-scrolling').toggleClass('start-scrolling');
               }
-      });
-
+    });
 </script>
