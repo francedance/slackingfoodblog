@@ -38,7 +38,6 @@ app.use('/signout',signout);
 app.use('/dashboard',dashboard);
 
 app.get('/index', function(req,res){
-      var session = req.session; 
       res.redirect('/');
       res.end();
 });
